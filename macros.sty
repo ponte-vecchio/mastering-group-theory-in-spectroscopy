@@ -1,4 +1,4 @@
-% use four qualitative colormaps from matplotlib
+% use qualitative colormaps from matplotlib
 \definecolor{cmap1}{HTML}{DD6E79} % #DD6E79
 \definecolor{cmap2}{HTML}{5076A6} % #5076A6
 \definecolor{cmap3}{HTML}{9D3C75} % #9D3C75
@@ -23,12 +23,16 @@
 \protected\def\ptcl{\ce{PtCl4^{2-}}}
 \protected\def\recl{\ce{[Re2Cl8]^{2-}}}
 
+\newcommand{\charop}[1]{\ensuremath{\mathop{\chi}\left(#1\/\right)}}
+
 \makeatletter
 % P-orbital notation
 \newcommand{\porb}{\@ifstar{\porb@}{\porb@@}}
-\protected\def\porb@{\ensuremath{p} orbital}
+\protected\def\porb@{\ensuremath{p}-orbital}
 \protected\def\porb@@#1{\ensuremath{p_{#1}} orbital}
 
+\newcommand{\sorb}{\ensuremath{s}-orbital}
+
 % Symmetry operations
-\newcommand{\symop}[2][]{\ensuremath{#2_{#1}}}
+\newcommand{\symop}[2][]{\ensuremath{\mathop{#2_{#1}}}}
 \makeatother

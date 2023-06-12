@@ -72,6 +72,7 @@
     % \setmainfont{texgyrepagella}
     \usepackage{libertinus}
     \renewcommand*{\familydefault}{\sfdefault}
+    \everymath{\displaystyle}
     % \usepackage[
     %     math-style=ISO,
     %     bold-style=ISO,
@@ -96,7 +97,7 @@
 %		Package Imports thereof
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tikz}
-
+\usepackage{nicematrix}
 \usepackage{chemfig}
 \setchemfig{%
 	atom sep = 1.75em,

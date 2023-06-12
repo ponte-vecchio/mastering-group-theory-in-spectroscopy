@@ -1,0 +1,285 @@
+\section{Matrix Representations of Groups}
+
+How may one utilise matrices to represent the symmetry operations?
+Seemingly there are infinite ways.
+The choice of representation is determined by its \keyword{basis} i.e. by th elabels or functions attached to objects.
+The number of basis functions, or \keyword{label}\textbf{s}, is called the \keyword{dimension} of the representation.
+
+A convenient basis to use when dealing with the motions of molecules is the set of Cartesian displacement vectors.
+Each atom has three degrees of motional freedom, meaning a molecule with $N$ number of atoms will have a basis of dimension $3N$.
+For example, each operation on a water molecule---having a 9-dimensional basis---can be represented by a $9\times9$ matrix.
+Below shows these 9-basis vectors along with the results of the $\symop[2]C (z)$ rotation:
+
+\begin{center}
+    \newcommand{\bigone}{\chemskipalign\tikz\node[draw, circle, minimum size=1.75em, inner sep=0pt, fill=cmap1] (0,0) {\textcolor{white}{O}};}
+    \newcommand{\bigother}[1]{\chemskipalign\tikz\node[atom, fill=cmap#1] (0,0) {\textcolor{white}{H}};}
+    \schemestart[][center]
+    \chemfig[cram width = .3em, cram dash width = 0.4pt, cram dash sep = 2pt]{%
+        \bigone(-[2,1.35]z_1)(-[0,1.35]y_1)(<[-0.5,1.35]x_1)%
+        (-[::-36,2.5]\bigother{2}(-[2,1.35]z_3)(-[0,1.35]y_3)(<[-0.5,1.35]x_3))%
+        (-[::-144,2.5]\bigother{4}(-[2,1.35]z_2)(-[0,1.35]y_2)(<[-0.5,1.35]x_2))%
+    }
+    \arrow{->[\symop[2]C]}
+    \chemfig[cram width = .3em, cram dash width = 0.4pt, cram dash sep = 2pt]{%
+        \bigone(-[2,1.35]z_1)(-[4,1.35]y_1)(<:[3.5,1.35]x_1)%
+        (-[::-36,2.5]\bigother{4}(-[2,1.35]z_2)(-[4,1.35]y_2)(<:[3.5,1.35]x_2))%
+        (-[::-144,2.5]\bigother{2}(-[2,1.35]z_3)(-[4,1.35]y_3)(<:[3.5,1.35]x_3))%
+    }
+    \schemestop
+    \let\bigone\undefined
+    \let\bigother\undefined
+\end{center}
+
+The result of this operation is: \(\left(x_i \to -x_j\right)\), \(\left(y_i \to -y_j\right)\) and \(\left(z_i \to +z_j\right)\) where $i = j$ for the \ce{O} atom coordinates since the \ce{O} lies on the \symop[2]C axis and therefore does not change its position.
+However, $i \neq j$ for the hydrogen atoms because they do not lie on the \symop[2]C axis---hence rotated into one another e.g. \(\left(x_2 \to -x_3\right)\).
+Such transformation can be represented in matrix notation where each atom will have a $3\times3$ matrix:
+
+\begin{equation*}
+    \begin{bmatrix}
+        x_i \\ y_i \\ z_i
+    \end{bmatrix} = \begin{bmatrix}
+        -1 & 0 & 0 \\
+        0 & -1 & 0 \\
+        0 & 0 & +1
+    \end{bmatrix} \begin{bmatrix}
+        x_j \\ y_j \\ z_j
+    \end{bmatrix}
+\end{equation*}
+
+\noindent which must be placed into the $9\times9$ matrix representation of the \symop[2]C operation.
+The \ce{O} atom is not affected by the rotation $(i = j = 1)$ thus its $3\times3$ matrix remains in its original position $(1, 1)$ on the diagonal.
+Meanwhile, the \ce{H} atoms are exchanged by the  so their matrices are rotated off of the diagonal to the $(2, 3)$ and $(3, 2)$ positions.
+To represent the \symop[2]C rotation in matrix notation:
+
+\begin{equation*}
+C_2 \begin{bmatrix} x_1\\ y_1\\ z_1\\ x_2\\ y_2\\ z_2\\ x_3\\ y_3\\ z_3 \end{bmatrix} = \begin{bNiceMatrix}[r,left-margin=0.5em, right-margin=0.5em]
+    -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & +1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & +1 \\
+    0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & +1 & 0 & 0 & 0
+    \CodeAfter
+    \SubMatrix[{1-1}{3-3}]
+    \SubMatrix[{4-7}{6-9}]
+    \SubMatrix[{7-4}{9-6}]
+\end{bNiceMatrix} \begin{bmatrix} x_1\\ y_1\\ z_1\\ x_2\\ y_2\\ z_2\\ x_3\\ y_3\\ z_3 \end{bmatrix}
+\end{equation*}
+
+In the case of reflection through the plane of the molecule i.e. \(\left(\symop[v]{\sigma} = YZ\right)\), only the $x$-coordinate is changed and no atoms are transformed, thus the matrix representation is:
+
+\begin{equation*}
+    \sigma \begin{bmatrix} x_1\\ y_1\\ z_1\\ x_2\\ y_2\\ z_2\\ x_3\\ y_3\\ z_3 \end{bmatrix} = \begin{bNiceMatrix}[r,left-margin=0.5em, right-margin=0.5em]
+    -1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & +1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & +1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -1 & 0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & +1 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & +1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & -1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & +1 & 0 \\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & +1
+    \CodeAfter
+    \SubMatrix[{1-1}{3-3}]
+    \SubMatrix[{4-4}{6-6}]
+    \SubMatrix[{7-7}{9-9}]
+\end{bNiceMatrix} \begin{bmatrix} x_1\\ y_1\\ z_1\\ x_2\\ y_2\\ z_2\\ x_3\\ y_3\\ z_3 \end{bmatrix}
+\end{equation*}
+
+Thus, $9\times9$ matrices, as shown above, can serve as a method to represent operations for the water molecule in this basis.
+Thankfully, we need only specify the \keyword{trace} of this matrix i.e. the \textit{sum} of the diagonal elements.
+The resulting number is called the \keyword{character}, and the character of an operation $\mathbf R$ is given by the symbol \charop{\mathbf R}.
+For example, $\charop{\symop[2]C} = -1 $ and $\charop{\symop[v]{\sigma}} = 3$.
+An observant student may notice two important points about the character:
+\begin{enumerate}
+    \item Only the atoms that remain in the same position can contribute to the trace, otherwise their matrices will be rotated off the diagonal;
+    \item Each operation contributes the same amount to the trace for each atom because all atoms have the same matrix.
+\end{enumerate}
+Indeed so. For a reflection through the plane bisecting the \ce{H-O-H} bond angle, $\charop{\symop[v]{\sigma'}} = +1$ since the \ce{O}---and only \ce{O}---is unshifted and a plane contributed $+1$ for each unshifted atom.
+Additionally, the character for the identity element will always be the dimension of the basis since all labels are unchanged. For water molecule, $\charop{\symop{E}} = 9$.
+
+Suppose we were to summate this information and put it into a tabular format. The representation $\left(\Gamma\right)$ for water molecule in this basis is:
+\begin{center}
+$\begin{NiceArray}{*{5}{c}}[hvlines]
+    {} & \symop{E} & \symop[2]C & \symop[v]{\sigma}' (YZ) & \symop[v]{\sigma} (XZ)\\
+    \Gamma & 9 & -1 & 3 & 1
+\end{NiceArray}$
+\end{center}
+
+The $s$-orbitals can also serve as a basis. In such a basis, each atom has $1$ and not $3$ labels which, in turn, makes each operation a $3\times3$ matrix cf. $9\times9$ in the previous basis i.e. that of \porb*.
+
+\begin{center}
+    \newcommand{\bigone}{\chemskipalign\tikz\node[draw, circle, minimum size=1.75em, inner sep=0pt, fill=cmap1] (0,0) {\textcolor{white}{I}};}
+    \newcommand{\bigother}[2][3]{\chemskipalign\tikz\node[atom, fill=cmap#1] (0,0) {\textcolor{white}{#2}};}
+    \schemestart[][]
+    \chemfig{\bigone(-[::-30,2]\bigother{III})(-[::-150,2]\bigother[4]{II})}
+    \schemestop
+    \let\bigone\undefined
+    \let\bigother\undefined
+\end{center}
+
+Further, there can be no sign change for an $s$-orbital.
+That is:
+
+\begin{equation*}
+    \begin{bNiceArray}{c}[last-row,delimiters/color=white]
+        \\
+        \\
+        \\
+        \Gamma
+    \end{bNiceArray}\quad%
+    E = \begin{bNiceArray}{ccc}[last-row]
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        &   & 3
+    \end{bNiceArray}\quad%
+    \symop[2]C = \begin{bNiceArray}{ccc}[last-row]
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        &   & 1
+    \end{bNiceArray}\quad%
+    \symop[v]{\sigma} = \begin{bNiceArray}{ccc}[last-row]
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        &   & 3
+    \end{bNiceArray}\quad%
+    \symop[v]{\sigma'} = \begin{bNiceArray}{ccc}[last-row]
+        1 & 0 & 0 \\
+        0 & 0 & 1 \\
+        0 & 1 & 0 \\
+        &   & 1
+    \end{bNiceArray}
+\end{equation*}
+
+If one basis $\left(f'\right)$ is a linear combination of another basis $\left(f\mathop{}\right)$, or $f' = Cf$, then the representation in one basis should be \emph{similar} to each other.
+It can be shown that the matrix representations of operator $\mathbf R$ in these two basis sets $\left(D\mathop{}(\mathbf R)\textrm{ and }D'(\mathbf R)\right)$ are related by a similarity transformation $D'(R) = C^{-1}D\mathop{}(R)\mathop{}C$ and $D\mathop{}(R) = CD'(R)\mathop{}C^{-1}$.
+That is, the matrices $D\mathop{}(R)$ and $D'(R)$ are conjugate.
+For example, the linear combination of \sorb{}s: $X = \mathrm{\color{cmap1}I} + \mathrm{\color{cmap4}II}$, $Y = \mathrm{\color{cmap1}I} + \mathrm{\color{cmap3}III}$ and $Z = \mathrm{\color{cmap4}II} + \mathrm{\color{cmap3}III}$  can be expressed in matrix form as:
+
+\begin{equation*}
+    \begin{bNiceMatrix}[first-row]
+        f'\\
+        X\\
+        Y\\
+        Z
+    \end{bNiceMatrix}
+    \begin{bNiceMatrix}[first-row,delimiters/color=white]
+        =\\
+        {}\\
+        =\\
+        {}
+    \end{bNiceMatrix}
+    \begin{bNiceMatrix}[first-row]
+        &C&\\
+        1&1&0\\
+        1&0&1\\
+        0&1&1
+    \end{bNiceMatrix}\,
+    \begin{bNiceMatrix}[first-row]
+        f\\
+        \mathrm{I}\\
+        \mathrm{II}\\
+        \mathrm{III}
+    \end{bNiceMatrix}%
+    \quad\text{and}\quad%
+    C^{-1} = \frac{1}{2}\cdot\begin{bNiceMatrix}
+        +1&+1&-1\\
+        +1&-1&+1\\
+        -1&+1&+1
+    \end{bNiceMatrix}
+\end{equation*}
+
+\noindent The matrix representation of \(\symop[2]C \left((D'\left(C_2\right)\right)\) in the new basis is then give by \(D'\left(C_2\right) = C^{-1}\mathop{}D\left(C_2\right)\mathop{}C\), or %
+\(
+    D'(C_2) = \frac{1}{2} \begin{bNiceMatrix}
+        +1&+1&-1\\
+        +1&-1&+1\\
+        -1&+1&+1
+    \end{bNiceMatrix} \begin{bNiceMatrix}
+        1&0&0\\
+        0&0&1\\
+        0&1&0
+    \end{bNiceMatrix} \begin{bNiceMatrix}
+        1&1&0\\
+        1&0&1\\
+        0&1&1
+    \end{bNiceMatrix} = \begin{bNiceMatrix}
+        0&1&0\\
+        1&0&0\\
+        0&0&1
+    \end{bNiceMatrix}
+\).
+Similarly, \(D'(\symop[v]{\sigma'}) = \begin{bNiceMatrix}
+    0&1&0\\
+    1&0&0\\
+    0&0&1
+\end{bNiceMatrix}\) and \(D'(\symop[v]{\sigma}) = D'(\symop{E}) = \begin{bNiceMatrix}
+    1&0&0\\
+    0&1&0\\
+    0&0&1
+\end{bNiceMatrix}\).
+
+Note that the representation for \symop[2]C and \symop{\sigma'} have changed, but in all cases the \textbf{character is invariant with the similarity transformation}.
+That is, all members of a class of operations can be treated altogether since they are related by a similar transformation and therefore also must have the same characters.
+The two $3\times3$ bases used to to this point can be viewed as consisting of a $1\times1$ matrix---where one basis vector is not rotated into any of the others by any operation of the group, $I$ \& $Z$\/--- and a $2\times2$ sub-matrix---where two basis vectors are rotated into each other by at least one operation of the group.
+Thus, the $3\times3$ matrix representation ohas been reduced to a $1\times1$ matrix and a $2\times2$ matrix.
+Indeed, the $2\times2$ matrix can be reduced into two $1\times1$ matrices as well.
+In such processes, a large \keyword{reducible representation} is \emph{decomposed} into smaller---typically $1\times1$ but also $2\times2$ or $3\times3$---\keyword{irreducible representation}\textbf{s}.
+
+Consider the \keyword{symmetry adapted linear combination}\textbf{s} (SALC’s) represented by $A = \mathrm{\color{cmap1}I}$, $B = \mathrm{\color{cmap4}II} +  \mathrm{\color{cmap3}III}$ and $C = \mathrm{\color{cmap4}II} - \mathrm{\color{cmap3}III}$.
+
+\begin{center}
+    \newcommand{\bigone}{\chemskipalign\tikz\node[draw, circle, minimum size=1.75em, inner sep=0pt, fill=cmap1] (0,0) {};}
+    \newcommand{\bigempty}{\chemskipalign\tikz\node[draw, circle, minimum size=1.35em, inner sep=0pt, fill=white, color=white] (0,0) {};}
+    \newcommand{\bigother}[1]{\chemskipalign\tikz\node[atom, fill=cmap#1] (0,0) {};}
+    \schemestart[][]
+        \chemname{%
+            \chemfig{\bigone(-[::-30,1.5])(-[::-150,1.5])}
+        }{\bfseries A}
+        \arrow{0}
+        \chemname{\chemfig{\bigempty(-[::-30,1.5]\bigother{1})(-[::-150,1.5]\bigother{1})}}{\bfseries B}
+        \arrow{0}
+        \chemname{\chemfig{\bigempty(-[::-30,1.5]\bigother{2})(-[::-150,1.5]\bigother{1})}}{\bfseries C}
+    \schemestop
+\end{center}
+
+\noindent In this basis, \symop[2]C rotation and a reflection through the plane orthogonal to the molecular plane do not change $A$ nor $B$, and only change the sign of $C$ while reflection through the molecular plane leaves all three unchanged.
+That is, %
+\(
+    E = \sigma = \begin{bNiceMatrix}
+        1&0&0\\
+        0&1&0\\
+        0&0&1
+    \end{bNiceMatrix}
+\)
+while %
+\(
+    C_2 = \sigma' = \begin{bNiceMatrix}
+        0&1&0\\
+        1&0&0\\
+        0&0&-1
+    \end{bNiceMatrix}
+\).
+
+Note how no basis vector is changed into another by a symmetry operation, as in this basis is \emph{symmetry adapted}.
+That is, our $3\times3$ representation now consists of three $1\times1$ matrices, and we have converted our reducible representation $\Gamma$ into three \emph{irreducible} representations: $\Gamma_1$; $\Gamma_2$; and $\Gamma_3$ such that $\Gamma = \Gamma_1 \oplus \Gamma_2 \oplus \Gamma_3$.
+
+\begin{center}
+$\begin{NiceArray}{l *{4}{r}}[hvlines]
+    {} & E & C_2 & \sigma & \sigma' \\
+    \Gamma_1 & 1 & 1 & 1 & 1 \\
+    \Gamma_2 & 1 & 1 & 1 & 1 \\
+    \Gamma_3 & 1 & -1 & 1 & -1\\
+    \Gamma\  & 3 & 1 & 3 & 1
+\end{NiceArray}$
+\end{center}
+
+The term “irreducible representation” is used very frequently, reasons for which we will find out soon.
+Decomposing a reducible representation into irreducible representations is an important process.
+Detailed steps for decomposing reducible representations will be described in later sections.
