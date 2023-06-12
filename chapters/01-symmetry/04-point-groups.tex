@@ -1,0 +1,224 @@
+\section{The Point Groups}
+
+The following groups all contain the identity operation and only the minimum operations required to define the group are given.
+In many cases, these minimum operations lead to other operations.
+In the following, $k$ is an integer $≥2$.
+
+\begingroup\baselineskip=1em
+\begin{itemize}
+    \item[\PG{C}{1}] No symmetry.
+    \item[\PG{C}{s}] Only a plane of symmetry.
+    \item[\PG{C}{k}] Only a \symop[k]C rotational axis.
+    \item[\PG{C}{i}] Only a centre of inversion.
+    \item[\PG{C}{kh}] A \symop[k]C rotation axis and a \symop[h]{\sigma}.
+    \item[\PG{C}{kv}] A \symop[k]C rotation axis and a \symop[v]{\sigma}.
+    \item[\PG{D}{k}] One \symop[k]C and $k$\symop[2]C axes. The $k$\symop[2]C axes are orthogonal to the \symop[k]C axis and at equal angles to one another.
+    \item[\PG{D}{kh}] The \symop[k]D operations plus a \symop[h]{\sigma} but this combination also results in $k\symop[v]{\sigma}$’s.
+    \item[\PG{D}{kd}] The \symop[k]D operations plus a $k$\symop[d]{\sigma} containing the \symop[k]C and bisecting the angles between adjacent \symop[2]C’s.
+    \item[\PG{S}{k}] Only the improper rotation \symop[k]S. Note $k$ must be an \emph{even} number since an aodd number would require a \symop[h]{\sigma}.
+    \item[\PG{T}{d}] The tetrahedral point group contains three mutually perpendicular \symop[2]C axes, four \symop[3]C axes and a centre of symmetry.
+    \item[\PG{O}{h}] The octahedral point group has three mutually perpendicular \symop[4]C axes, four \symop[3]C axes and a centre of symmetry.
+\end{itemize}
+\endgroup
+
+Determining the point group of a molecule is the first step in a treatment of the molecular orbitals or spectra of a compound.
+It is therefore important that this be done somewhat systematically.
+The flow chart in \fref{fig:flowchart} is offered as an aid, and a few examples should clarify the process.
+We will first determine the point groups for the following \ce{Pt(II)} ions:
+
+\begin{figure}[!htbp]
+    \centering
+    \schemestart[][south]
+    \chemname{\chemleft[\chemfig{%
+        Pt(-[1]\clclr{5}?(-[::45,,1,1,dotted]C_2)(-[-2,,1,1,dotted]))(-[::0,,1,1,dotted])(-[4,1.1,1,1,dotted])(-[-3]\clclr{5})(-[3]\clclr{5})-[::-45]\clclr{5}(-[::135,,1,1,dotted])(-[-2,,1,1,dotted])-[::90]Pt?(-[::-90]\clclr{5})(-[::0]\clclr{5})(-[0,1.1,1,1,dotted] C_2)(-[4,,1,1,dotted])}\chemright]%
+    }{\bfseries A}
+    \arrow{0}
+    \chemname{\chemleft[\chemfig{%
+        Pt(-[1]\clclr{5}?(-[::45,,1,1,dotted]C_2)(-[-2,,1,1,dotted]))(-[-3]\clr{Br}{1})(-[3]\clclr{5})-[::-45]\clclr{5}(-[::135,,1,1,dotted])(-[-2,,1,1,dotted])-[::90]Pt?(-[::-90]\clr{Br}{1})(-[::0]\clclr{5})}\chemright]%
+    }{\bfseries B}
+    \arrow{0}
+    \chemname{\chemleft[\chemfig{%
+        Pt(-[1]\clclr{5}?)(-[-3]\clr{Br}{1})(-[3]\clclr{5})-[::-45]\clclr{5}-[::90]Pt?(-[::-90]\clclr{5})(-[::0]\clr{Br}{1})}\chemright]%
+    }{\bfseries C}
+    \schemestop
+\end{figure}
+
+\textbf{A} contains three \symop[2]C axes, such that $\left[C_k?\right]$ is true for $k=2$.
+It contains a plane of symmetry, such that $\left[\sigma?\right]$ is also true.
+The three \symop[2]C axes are perpendicular, i.e. there is a \symop[2]C axis and two perpendicular $\symop[2]C'$'s which implies that $\left[\perp C_2?\right]$ is true.
+Fianlly, there is a plane of symmetry perpendicular to the \symop[2]C, thus $\left[\perp\sigma?\right]$ is also true.
+Combining these four observations, we arrive at the point group \PG{D}{2h}.
+\textbf{B} contains only one \symop[2]C axis, no $\perp\symop[2]C$'s, no \symop[h]{\sigma}, but it does have two $\symop[v]{\sigma}$'s---making it a \PG{C}{2v} ion.
+\textbf{C} contains a single \symop[2]C axis, and a horizontal plane (i.e. the plain of the ion) therefore has \PG{C}{2h} symmetry.
+
+% Flowchart config
+\usetikzlibrary{shapes, arrows, positioning, calc}
+% We need a long box for header, circle for final point group, diamond for question
+\tikzstyle{header} = [
+    rectangle,
+    text width=0.35\textwidth,
+    minimum height=1em,
+    text centered,
+    draw=cmap2,
+    fill=white!85!cmap2
+]
+% diamond but stretched
+\tikzstyle{spg} = [
+    ellipse,
+    text width=0.2\textwidth,
+    text centered,
+    minimum height=1em,
+    x radius = 3em,
+    y radius = 2.5em,
+    draw=cmap1, fill=white!85!cmap1,
+    rounded corners,
+]
+\tikzstyle{pgrp} = [
+    circle,
+    text centered,
+    draw=cmap1,
+    fill=white!85!cmap1
+]
+\tikzstyle{question} = [
+    diamond,
+    minimum width=3.3em,
+    minimum height=3.3em,
+    text centered,
+    draw=cmap4, 
+    fill=white!85!cmap4
+]
+\tikzstyle{arrow} = [->, >=stealth, thick]
+\def\childxdist{5.4em}
+\def\childydist{1.8em}
+
+\begin{figure}[!hbtp]
+    \centering
+    \begin{tikzpicture}
+        \node (header) [header] {Special Point Groups?\\ \small (Linear, Tetrahedral,\\ Octahedral, Icosahedral)};
+        \node (special) [spg, right of = header, xshift = 3 * \childxdist] {\PG{C}{\infty v}, \PG{D}{\infty v}, \PG{T}{}, \PG{T}{d},\\ \PG{T}{h}, \PG{O}{}, \PG{O}{h}, \PG{I}{h}};
+        \draw[arrow] (header) -- node[midway,above] {Yes} (special);
+
+        \node (ck) [question, below of = header, yshift = -1.5 * \childydist] {\PG{C}{k}?};
+        \draw[arrow] (header) -- node[midway,left] {No} (ck);
+            \node (sigmaN) [question, right of = ck, xshift = \childxdist] {\PG{\sigma}{?}}; \draw[arrow] (ck) -- node[midway,above] {No} (sigmaN);
+                \node (cs) [pgrp, right of = sigmaN, xshift = \childxdist, yshift = \childydist] {\PG{C}{s}}; \draw[arrow] (sigmaN) -- node[midway,above] {Yes} (cs);
+                \node (inv) [question, right of = sigmaN, xshift = \childxdist, yshift = -\childydist] {\PG{i}{}?}; \draw[arrow] (sigmaN) -- node[midway,below] {No} (inv);
+                    \node (ci) [pgrp, right of = inv, xshift = \childxdist, yshift = \childydist] {\PG{C}{i}}; \draw[arrow] (inv) -- node[midway,above] {Yes} (ci);
+                    \node (cone) [pgrp, right of = inv, xshift = \childxdist, yshift = -\childydist] {\PG{C}{1}}; \draw[arrow] (inv) -- node[midway,below] {No} (cone);
+
+            \node (sigmaY) [question, below of = ck, yshift = -1.5 * \childydist] {\PG{\sigma}{}?}; \draw[arrow] (ck) -- node[midway,left] {Yes} (sigmaY);
+                \node (stwok) [question, right of = sigmaY, xshift = \childxdist] {\PG{S}{2k}?}; \draw[arrow] (sigmaY) -- node[midway,above]{Yes} (stwok);
+                    \node (stwokY) [pgrp, right of = stwok, xshift = \childxdist] {\PG{S}{2k}}; \draw[arrow] (stwok) -- node[midway,above] {Yes} (stwokY);
+            
+            \node (Tc2) [question, below of = sigmaY, yshift = -\childydist, xshift = 0.8 * \childxdist] {$\perp \PG{C}{2}?$};
+            \draw[arrow] (sigmaY) -- node[midway,left] {Yes} (Tc2);
+            \draw[arrow] (stwok) -- node[midway,right] {No} (Tc2);
+
+            \node (sigmahY) [question, below of = Tc2, xshift = -0.8 * \childxdist, yshift = -\childydist] {\PG{\sigma}{h}?}; \draw[arrow] (Tc2) -- node[midway,left] {Yes} (sigmahY);
+                \node (dkh) [pgrp, left of = sigmahY, xshift = -0.666 * \childxdist] {\PG{D}{kh}}; \draw[arrow] (sigmahY) -- node[midway,above] {Yes} (dkh);
+                \node (sigmavY) [question, below of = sigmahY, yshift = -1.5 * \childydist] {\PG{\sigma}{v}?}; \draw[arrow] (sigmahY) -- node[midway, right] {No} (sigmavY);
+                    \node (dkd) [pgrp, left of = sigmavY, xshift = -0.666 * \childxdist] {\PG{D}{kd}}; \draw[arrow] (sigmavY) -- node[midway,above] {Yes} (dkd);
+                    \node (dk) [pgrp, below of = sigmavY, yshift = -1.25 * \childydist] {\PG{D}{k}}; \draw[arrow] (sigmavY) -- node[midway,right] {No} (dk);
+            \node (sigmahN) [question, below of = Tc2, xshift = 0.8 * \childxdist, yshift = -\childydist] {\PG{\sigma}{h}?}; \draw[arrow] (Tc2) -- node[midway,right] {No} (sigmahN);
+                \node (ckh) [pgrp, right of = sigmahN, xshift = 0.666 * \childxdist] {\PG{C}{kh}}; \draw[arrow] (sigmahN) -- node[midway,above] {Yes} (ckh);
+                \node (sigmavN) [question, below of = sigmahN, yshift = -1.5 * \childydist] {\PG{\sigma}{v}?}; \draw[arrow] (sigmahN) -- node[midway, right] {No} (sigmavN);
+                    \node (ckv) [pgrp, right of = sigmavN, xshift = 0.666 * \childxdist] {\PG{C}{kv}}; \draw[arrow] (sigmavN) -- node[midway,above] {Yes} (ckv);
+                    \node (ck) [pgrp, below of = sigmavN, yshift = -1.25 * \childydist] {\PG{C}{k}}; \draw[arrow] (sigmavN) -- node[midway,right] {No} (ck);   
+    \end{tikzpicture}
+    \caption{Flowchart for the determination of molecular point groups}\label{fig:flowchart}
+\end{figure}
+\pagebreak
+
+Next, we determine the point group to which the \keyword{staggered} and \keyword{eclipsed} firms of octachlorodirhenate belong.
+
+\begin{figure}[!htbp]
+    \centering
+    \schemestart[][center]
+    \chemname{\chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+        Re(<:[1,1.5,,,white!75!black]\clf{Cl}{cmap5!50!white})(<[3,1.5]\clf{Cl}{cmap5!50!white})(<[5,1.5]\clf{Cl}{cmap5!50!white})(<:[7,1.5,,,white!75!black]\clf{Cl}{cmap5!50!white})-[::-15,2,,,white!75!black]%
+        Re(-[::105,1.5,,,white!40!black]\clclf3)(-[::-75,1.5,,,white!40!black]\clclf3)(<[::-155,1.5]\clclf3)(<:[::20,1.5]\clclf3)}}{\bfseries Staggered}
+    \arrow{0}
+    \chemname{\chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+    Re(<:[1,1.5]\clf{Cl}{cmap5!50!white})(<[3,1.5]\clf{Cl}{cmap5!50!white})(<[5,1.5]\clf{Cl}{cmap5!50!white})(<:[7,1.5,,,white!75!black]\clf{Cl}{cmap5!50!white})-[::-15,2,,,white!75!black]%
+    Re(<:[1,1.5]\clclf3)(<[3,1.5]\clclf3)(<[5,1.5]\clclf3)(<:[7,1.5,,,white!75!black]\clclf3)}}{\bfseries Eclipsed}
+    \schemestop
+\end{figure}
+
+
+Both forms of \recl\ contain a \symop[4]C axis (\ce{Re-Re} bond) hence the answer to $\left[\PG{C}{k}?\right]$ is true for $k = 4$.
+Both also contain planes of symmetry, thus $\left[\sigma ?\right]$ is also true.
+The four $\perp \symop[2]C$'s passing through the centre of the \ce{Re-Re} bond can be observed as well.
+This is more apparent for the eclipsed form---2 parallel to the \ce{Re-Cl} bonds and 2 parallel to their bisectors---unlike the staggered form whose $\perp \symop[2]C$'s bisecting the \ce{Cl-Re-Re-Cl} dihedral angles are shown as below:
+
+\begin{center}
+    \schemestart[][]
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+        Re%
+        % positive (frontal) bonds
+        (<[0,2]\clclf3)(<[2,2]\clclf3)(<[4,2]\clclf3)(<[6,2]\clclf3)%
+        % negative bonds
+        (<:[1,2,,,white!40!black]\clf{Cl}{cmap5!50!white})(<:[3,2,,,white!40!black]\clf{Cl}{cmap5!50!white})(<:[5,2,,,white!40!black]\clf{Cl}{cmap5!50!white})(<:[7,2,,,white!40!black]\clf{Cl}{cmap5!50!white})%
+        % C2 axes
+        (-[0.5,4,,,dotted, cmap1!50!black]\clr{\symop[2]C}{1!50!black})%
+        (-[4.5,4,,,dotted, cmap1!50!black])%
+        (-[-0.5,4,,,dotted, cmap2!50!black]\clr{\symop[2]C}{2!50!black})%
+        (-[3.5,4,,,dotted, cmap2!50!black])%
+        (-[1.5,4,,,dotted, cmap4!50!black]\clr{\symop[2]C}{4!50!black})%
+        (-[-2.5,4,,,dotted, cmap4!50!black])%
+        (-[-1.5,4,,,dotted, cmap5!50!black]\clr{\symop[2]C}{5!50!black})%
+        (-[2.5,4,,,dotted, cmap5!50!black])%
+        }
+    \schemestop
+\end{center}
+
+Both forms also contain vertical planes, but the eclipsed form also has a horizontal plane which is not present in the staggered form.
+The point groups are, therefore, \PG{D}{4h} for the eclipsed form and \PG{D}{4d} for the staggered form.
+It is crucial to be proficient with this process, and only \emph{practice makes perfect}.
+\pagebreak
+
+\begin{problem}
+Determine the point group to which each of the following belongs:
+\tcblower
+\vbox{\tabskip=1em\offinterlineskip
+    \ialign{\tabskip=1.2em
+        \hfil\schemestart[][center]#\schemestop\hfil&
+        \hfil\schemestart[][center]#\schemestop\hfil&
+        \hfil\schemestart[][center]#\schemestop\hfil&
+        \hfil\schemestart[][center]#\schemestop\hfil&
+        \hfil\schemestart[][center]#\schemestop\hfil&
+        \hfil\schemestart[][center]#\schemestop\hfil\cr
+        \chemfig{C(-[::180]H)~N}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Sn(-[3,1.3]Cl)(-[-3,1.3]Cl)(<[::-20,1.3]Br)(<:[::20,1.3]Br)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Sn(-[3,1.3]Cl)(-[-3,1.3]Cl)(<[::-20,1.3]Br)(<:[::20,1.3]Cl)}&
+        \chemfig[cram width = .3em, cram dash width = 0.8pt, cram dash sep = 3pt]{?<[1.333,1.1]-[::-120,1.1,,,line width=.3em]>[::120,1.1]-[-2,0.8]-[::-150]-[::120]-[::-120]?}&
+        \chemfig{Xe(-F)(-[::180]F)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{W(=[2]Se)(=[-2]Se)(<[::-20,1.3]P)(<:[::20,1.3]P)(<[::160,1.3]P)(<:[::-160,1.3]P)}\cr\noalign{\bigskip}
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Pt(<[::-20,1.3]Cl)(<[::-160,1.3]Br)(<:[::20,1.3]Cl)(<:[::160,1.3]Br)(-[2]Cl)(-[-2]Br)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Pt(<[::-20,1.3]Cl)(<[::-160,1.3]Br)(<:[::20,1.3]Br)(<:[::160,1.3]Br)(-[2]Cl)(-[-2]Cl)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Pt(<[::-20,1.3]Cl)(<[::-160,1.3]Br)(<:[::20,1.3]Cl)(<:[::160,1.3]Br)(-[2]Cl)(-[-2]Cl)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Re(<[::-20,1.3]CN)(<[::-160,1.3,,2]NC)(<:[::20,1.3]CN)(<:[::160,1.3,,2]NC)(=[2]O)(=[-2]O)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{V(<[::-20]@{od}O)(<[::-160]@{oa}O)(<:[::20]@{oc}O)(<:[::160]@{ob}O)(=[2]O)(-[-2]py)}%
+        \chemmove{\draw[-](oa)..controls ++(170:1em) and ++(-170:1em)..(ob);}%
+        \chemmove{\draw[-](oc)..controls ++(-10:1em) and ++(10:1em)..(od);}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{V(<[::-20]@{ob}O)(<[::-160]@{oc}O)(<:[::20]@{oa}O)(<:[::160]py)(=[2]O)(-[-2]@{od}O)}%
+        \chemmove{\draw[-](oa)..controls ++(-10:1em) and ++(10:1em)..(ob);}%
+        \chemmove{\draw[-](od)..controls ++(-140:1.25em) and ++(-110:1.25em)..(oc);}
+        \cr\noalign{\bigskip}
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+            Ru(<[::-20,1.3]CN)(<:[::20,1.3]CN)%
+            (-[2]N?[na])(<:[::160,1.3]N-[2,0.7]-[::-65,0.7]?[na])%
+            (-[-2]N?[nb])(<[::-160,1.3]N-[-2,0.65]-[::65,0.7]?[nb])%
+        }&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Mo(-[::90]N)(<:[::-15,1.3]Cl)(<[::-55,1.3]O)(<[::-120,1.3]Cl)(<:[::-165,1.3]O)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{Cu(-[3,1.3]I)(-[-3,1.3]I)(<[::-20,1.3]Br)(<:[::20,1.3]Cl)}&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+            (-[::0,0.8](-[::90]Cl)(-[::-90]Cl)(<[::-20]F)(<:[::160]F))%
+            (-[::180,0.8](<[::120]F)(<[::-120]Cl)(<:[::60]Cl)(<:[::-60]F))%
+        }&
+        \chemfig[cram width = .35em, cram dash width = 0.8pt, cram dash sep = 3pt]{%
+            (-[::90]F)(-[0,1.2]F)(-[::-90]F)(<:[::160,1.2]F)(<[::-160,1.2]Cl)
+        }&
+        \chemfig{Sb(=[0,1.1]O)-[::-150,1.1]Cl}\cr
+    }
+}
+\end{problem}

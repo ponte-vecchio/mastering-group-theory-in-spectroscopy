@@ -1,0 +1,34 @@
+% use four qualitative colormaps from matplotlib
+\definecolor{cmap1}{HTML}{DD6E79} % #DD6E79
+\definecolor{cmap2}{HTML}{5076A6} % #5076A6
+\definecolor{cmap3}{HTML}{9D3C75} % #9D3C75
+\definecolor{cmap4}{HTML}{AAAA35} % #AAAA35
+\definecolor{cmap5}{HTML}{43863E} % #43863E
+\colorlet{cmap6}{cmap3!55!cmap5}
+% integrate colors with colored atom
+%\node[draw,circle,minimum size=1.5em,inner sep=0pt] at (2,0) {$T_1$};
+\tikzset{%
+  atom/.style={draw, circle, minimum size=1.25em, inner sep=0pt}
+}
+\tikzstyle{dotted} = [dash pattern=on 0.5pt off 1pt]
+\newlength{\capC}
+\settoheight{\capC}{C}
+\newcommand{\clclr}[2][Cl]{\textcolor{cmap#2}{\sffamily #1}}
+\newcommand{\clr}[2]{\textcolor{cmap#2}{\sffamily #1}}
+\newcommand{\clclf}[2][Cl]{\chemskipalign\tikz\node[atom, fill=cmap#2] (0,0) {\textcolor{white}{\sffamily #1}};}
+\newcommand{\clf}[2]{\chemskipalign\tikz\node[atom, fill=#2] (0,0) {\textcolor{white}{\sffamily #1}};}
+\newcommand{\clfinline}[2][Cl]{\begin{tikzpicture}[baseline=-.5\capC]\node[atom, fill=cmap#2, anchor=mid] (0,0) {\textcolor{white}{\sffamily #1}};\end{tikzpicture}}
+
+\newcommand{\PG}[2]{\ensuremath{\ce{#1}_{#2}}}
+\protected\def\ptcl{\ce{PtCl4^{2-}}}
+\protected\def\recl{\ce{[Re2Cl8]^{2-}}}
+
+\makeatletter
+% P-orbital notation
+\newcommand{\porb}{\@ifstar{\porb@}{\porb@@}}
+\protected\def\porb@{\ensuremath{p} orbital}
+\protected\def\porb@@#1{\ensuremath{p_{#1}} orbital}
+
+% Symmetry operations
+\newcommand{\symop}[2][]{\ensuremath{#2_{#1}}}
+\makeatother

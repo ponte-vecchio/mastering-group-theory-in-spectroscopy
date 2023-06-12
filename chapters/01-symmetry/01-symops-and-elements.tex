@@ -1,0 +1,210 @@
+\section{Symmetry operation and symmetry elements}
+
+There are only 5 types of symmetry operations required for the systems covered in typical undergraduate curricula, and \ptcl\  ion contains examples of each.
+In this section, each type of operation will be discussed in terms of its effect on the ion.
+The effect of the operations on the chlorine \porb{z}s will also be considered in order to better illustrate the effects of the operations.
+Thus, in the figures that follow, \clclr1, \clclr2, \clclr3\ and \clclr4\ will represent \ce{Cl} atom 1 with the positive lobe of the \porb{z} out of the plane of the paper, while \clfinline1, \clfinline2, \clfinline3\ and \clfinline4\ will imply that the negative lobe of the \porb{z} is out of the plane of the paper for \ce{Cl} atom 1.
+
+
+1. The \keyword{Identity Operation}, (\symop{E}) does nothing and has no \keyword{symmetry element} but it is a required member of each symmetry group. Thus, operation with \symop{E} will change neither the positions of the atoms nor the phaes of the \porb{z}s.
+
+\begin{figure}[htbp!]
+    \centering
+    \begin{tabular}{r | l}
+        \omit\hss Atoms\hss & \porb{z}s\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[\symop{E}]}
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4-[::0,,,,dotted]Y)(-[0]\clclr3-[::0,,,,dotted]X)(-[1,1.5,,,dotted]a)(-[5,1.5,,,dotted])(-[3,1.5,,,dotted])(-[7,1.5,,,dotted]b)}
+        \schemestop
+    \end{tabular}
+    \caption{The effect of the identity operation on the atoms and the \ce{Cl} $p_z$ orbitals in \ptcl} \label{fig:identity-pz}
+\end{figure}
+
+2. An \keyword{N-fold rotation}, (\symop[n]{C}) is a rotation of $\frac{2\pi}{n}$ radians about an axis.
+The axis with the \textbf{highest value of $\mathbf n$ is the} \keyword{principle axis}, and is designated as the $z$-axis.
+Thus the $z$-axis in \ptcl\ is perpendicular to the plane of the ion.
+This axis is in fact three symmetry elements since rotations by $\frac{\pi}{2}$, $\pi$ and $\frac{3\pi}{2}$ about this axis all yield no change in the molecule.
+These three axes are referred to as $\symop[4]{C},\,\symop[4]{C}^2,\,\symop[2]{C}$ and $\symop[4]{C}^3$ respectively.\footnotemark\ 
+Rotations about the $z$-axis will not change the phase of the \porb{z}s.
+The $X$, $Y$, $a$ and $b$ axes defined in \fref{fig:identity-pz} are also \symop[2]{C} rotational axes.
+It will be shown later that the \symop[2]{C} rotations in this group can be grouped into three \keyword{classes} which are differentiated with the use of $'\/$ and $''\/$\ $\left\{\symop[2]{C}\left(Z\right)\right\}$, $\left\{\symop[2]{C}'\left(X\right)\,\&\,\symop[2]{C}'\left(Y\right)\right\}$, and $\left\{\symop[2]{C}''\left(a\right)\,\&\,\symop[2]{C}''\left(b\right)\right\}$.
+Since the $\symop[2]{C}'$ and $\symop[2]{C}''$ are orthogonal to the $z$-axis, rotation about any one of them will invert the \porb{z}s as shown in \fref{fig:rotation-pz}.
+
+\begin{figure}[!htbp]
+    \centering 
+    \begin{tabular}{r | l}
+        \omit\hss Atoms\hss & \porb{z}s\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[$\symop[4]{C}\left(Z\right)$]}
+        \chemfig{Pt(-[2]\clclr1)(-[4]\clclr4)(-[6]\clclr3)(-[0]\clclr2)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr1)(-[4]\clclr4)(-[6]\clclr3)(-[0]\clclr2)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[$\symop[4]{C}^3\left(Z\right)$]}
+        \chemfig{Pt(-[2]\clclr3)(-[4]\clclr2)(-[6]\clclr1)(-[0]\clclr4)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr3)(-[4]\clclr2)(-[6]\clclr1)(-[0]\clclr4)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[$\symop[2]{C}'\left(X\right)$]}
+        \chemfig{Pt(-[2]\clclr4)(-[4]\clclr1)(-[6]\clclr2)(-[0]\clclr3)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclf{4})(-[4]\clclf{1})(-[6]\clclf{3})(-[0]\clclf{2}-[::0,,,,dotted]X)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[1,1.5,,,dotted]a)(-[5,1.5,,,dotted])(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[$\symop[2]{C}''\left(a\right)$]}
+        \chemfig{Pt(-[2]\clclr3)(-[4]\clclr4)(-[6]\clclr1)(-[0]\clclr2)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclf3)(-[4]\clclf4)(-[6]\clclf1)(-[0]\clclf2)}
+        \schemestop\\
+    \end{tabular}
+    \caption{The effect of some of the \symop[4]{C} operations on the atoms and the \ce{Cl} $p_z$ orbitals in \ptcl.} \label{fig:rotation-pz}
+\end{figure}
+
+Thus the ion contains seven rotational axes, namely \symop[4]C, $\symop[4]C^3$, $\symop[4]C^2 \equiv \symop[2]C$, $\symop[2]C' (X)$, $\symop[2]C' (Y)$, $\symop[2]C'' (a)$ and $\symop[2]C'' (b)$.
+
+\footnotetext{Since the clockwise $\symop[4]{C}^3$ operation is equivalent to a counterclockwise \symop[4]{C} rotation, the \symop[4]{C} and $\symop[4]{C}^3$ operations are also referred to as the $\symop[4]{C}^+$ and $\symop[4]{C}^-$ operations respectively.}
+
+3. \keyword{Reflection}\textbf{s} can be made through three different types of planes: \keyword{vertical plane}\textbf{s} \(\left(\symop[v]{\sigma}\right)\) contains the principle axis; \keyword{horizontal plane}\textbf{s} \(\left(\symop[h]{\sigma}\right)\) are orthogonal to the principle axis; and \keyword{dihedral plane}\textbf{s} \(\left(\symop[d]{\sigma}\right)\) contain the principle axis and bisect two \symop[2]{C} axes.
+The distinction between vertical and diheral is often unclear.
+Where appropriate, planes bisecting bond angles will be designated as dihedral while those contaning bonds will be designated as vertical.
+See \fref{fig:reflection-pz}.
+
+\begin{figure}[!hbtp]
+    \centering
+    \begin{tabular}{ r | l }
+        \omit\hss Atoms \hss & \porb{z}s\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr3)(-[0]\clclr4)}
+        \arrow{->[$\symop[v]{\sigma} (yz)$]}
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr3)(-[6]\clclr4)(-[0]\clclr1)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr3)(-[6]\clclr4)(-[0]\clclr1)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)(-[1,1.5,,,dotted]a)(-[5,1.5,,,dotted])}
+        \arrow{->[$\symop[d]{\sigma} (a)$]}
+        \chemfig{Pt(-[2]\clclr3)(-[4]\clclr4)(-[6]\clclr1)(-[0]\clclr2)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr3)(-[4]\clclr4)(-[6]\clclr1)(-[0]\clclr2)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[$\symop[h]{\sigma} (xy)$]}
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclf2)(-[4]\clclf1)(-[6]\clclf4)(-[0]\clclf3)}
+        \schemestop\\
+    \end{tabular}
+    \caption{The effect of reflection through the symmetry planes on the atoms and the \ce{Cl} $p_z$ orbitals in \ptcl.} \label{fig:reflection-pz}
+\end{figure}
+
+In \ptcl, the planes containing the $z$-axis (\symop[v]{\sigma} and \symop[d]{\sigma}) will not change the phase of the \porb{z}s while reflection through the plane perpendicular to the $z$-axis (\symop[h]{\sigma}) does invert them (\fref{fig:reflection-pz}).
+Thus, \ptcl\ contains five planes of symmetry: namely \(\symop[v]{\sigma} (XZ)\), \(\symop[v]{\sigma} (YZ)\), \(\symop[h]{\sigma} (XY)\), \(\symop[d]{\sigma} (a)\) and \(\symop[d]{\sigma} (b)\).
+Note that the $a$ and $b$ planes are defined as those planes orthogonal to the plane of the ion and contaning the $a$ and $b$ rotational axes.
+
+4. An \keyword{improper rotation} or a \keyword{rotary reflection} (\symop[n]S) is a \symop[n]{C} followed by a \symop[h]{\sigma}.
+Since \ptcl\ is a planar ion, the $Z$-axis is an element for both proper and improper rotations.
+See \fref{fig:improper-rotation-pz}.
+Note that an \symop[4]S result in the same numbering as a \symop[4]C, but the phases of the \porb{z}s are changed.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tabular}{r | l}
+        \omit \hss Atoms \hss & \porb{z}s\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[\symop[4]{S}]}
+        \chemfig{Pt(-[2]\clclr1)(-[4]\clclr4)(-[6]\clclr3)(-[0]\clclr2)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclf1)(-[4]\clclf4)(-[6]\clclf3)(-[0]\clclf2)}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+        \arrow{->[\(i = \symop[2]{S}\)]}
+        \chemfig{Pt(-[2]\clclr4)(-[4]\clclr3)(-[6]\clclr2)(-[0]\clclr1)}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{Pt(-[2]\clclf4)(-[4]\clclf3)(-[6]\clclf2)(-[0]\clclf1)}
+        \schemestop\\
+    \end{tabular}
+    \caption{The effect of improper rotations on atoms and the \ce{Cl} $p_z$ orbitals in \ptcl.}\label{fig:improper-rotation-pz}
+\end{figure}
+
+5. A \keyword{centre of inversion} \(\symop i\) takes all $(x, y, z) \to (-x, -y, -z)$. This operation can be performed by a \(\symop[2]C (z)\) which takes $(x, y, z) \to (-x, -y, +z)$ followed by a \(\symop{\sigma} (xy)\) which inverts $z$, i.e. $\symop i = \symop[2]C\symop[h]{\sigma} = \symop[2]S$. Since \symop i and \(\symop[2]S\) are equivalent, \(\symop[2]S\) is rarely used.
+
+In sum, \ptcl\ contains \symop E, \symop[4]C, $\symop[4]C^3$, $\symop[4]C^2 = \symop[2]C$, $\symop[2]C' (x)$, $\symop[2]C' (y)$, $\symop[2]C'' (a)$, $\symop[2]C'' (b)$, \symop i, \symop[4]S, $\symop[4]S^3$, \(\symop[v]{\sigma} (XZ)\), \(\symop[v]{\sigma} (YZ)\), \(\symop[h]{\sigma}\), \(\symop[d]{\sigma} (a)\) and \(\symop[d]{\sigma} (b)\).
+These 16 symmetry elements specify the symmetry of the ion.
+
+\paragraph*{\keyword{Successive Operations}}
+In some of the following discussion, the result of applying more than one operation will be of importance.
+The result of performing a \symop[4]C rotation followed by a reflection through the $XZ$ plan (\symop[v]{\sigma}\symop[4]C) is the same as a single \(\symop[d]{\sigma} (a)\) operation.
+
+\begin{center}
+    \schemestart[][]
+    \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+    \arrow{->[\symop[4]{C}]}
+    \chemfig{Pt(-[2]\clclr1)(-[4]\clclr4)(-[6]\clclr3)(-[0]\clclr2)}
+    \arrow{->[$\symop[v]{\sigma} (xz)$]}
+    \chemfig{Pt(-[2]\clclr3)(-[4]\clclr4)(-[6]\clclr1)(-[0]\clclr2)}
+    \arrow{->}
+    $\symop[d]{\sigma} (a)$
+    \schemestop
+\end{center}
+
+\noindent However, if the order of the operations is reversed, i.e. (\symop[4]C \symop[v]{\sigma}) the result is equivalent to $\symop[d]{\sigma} (b)$.
+
+\begin{center}
+    \schemestart[][]
+    \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+    \arrow{->[$\symop[v]{\sigma} (xz)$]}
+    \chemfig{Pt(-[2]\clclr4)(-[4]\clclr1)(-[6]\clclr2)(-[0]\clclr3)}
+    \arrow{->[\symop[4]{C}]}
+    \chemfig{Pt(-[2]\clclr1)(-[4]\clclr2)(-[6]\clclr3)(-[0]\clclr4)}
+    \arrow{->}
+    $\symop[d]{\sigma} (b)$
+    \schemestop
+\end{center}
+
+It is important to note that in this case the order of the operation is important, i.e. $\symop[4]{C}\symop[v]{\sigma} ≠ \symop[v]{\sigma}\symop[4]{C}$. In some instances, the order of operation is not important. Two operations commute if the result of successive application of the two operators is the same irrespective of the order in which they were carried out. Thus, \symop[4]{C} and \symop[v]{\sigma} do not commute, but, as shown below, \symop[4]{C} and $\symop[h]{\sigma}$ do commute, i.e., $\symop[v]{\sigma} = \symop[4]S = \symop[h]{\sigma}\symop[4]C$.
+
+\begin{center}
+    \schemestart[][north]
+    \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+    \arrow{->[\symop[4]{C}]}
+    \chemfig{Pt(-[2]\clclr1)(-[4]\clclr4)(-[6]\clclr3)(-[0]\clclr2)}
+    \arrow{->[$\symop[h]{\sigma}$]}
+    \chemfig{Pt(-[2]\clclf1)(-[4]\clclf4)(-[6]\clclf3)(-[0]\clclf2)}
+    \arrow{->}
+    $\symop[4]S$
+    \schemestop
+    \vskip\baselineskip
+    \schemestart[][north]
+    \chemfig{Pt(-[2]\clclr2)(-[4]\clclr1)(-[6]\clclr4)(-[0]\clclr3)}
+    \arrow{->[$\symop[h]{\sigma}$]}
+    \chemfig{Pt(-[2]\clclf2)(-[4]\clclf1)(-[6]\clclf4)(-[0]\clclf3)}
+    \arrow{->[\symop[4]{C}]}
+    \chemfig{Pt(-[2]\clclf1)(-[4]\clclf4)(-[6]\clclf3)(-[0]\clclf2)}
+    \arrow{->}
+    $\symop[4]S$
+    \schemestop
+\end{center}
+\pagebreak
+%% End of section 1

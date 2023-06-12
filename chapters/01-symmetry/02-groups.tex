@@ -1,0 +1,127 @@
+\section{Groups}
+
+A set of operations like those above form a \keyword{group} if they satisfy the following four conditions:
+
+\begin{enumerate}
+    \item The set contains the identity operation \symop{E} such that $\symop{RE} = \symop{ER} = \symop{R}$ \forall $\symop{R}$ in the set.
+    \item The \textbf{product of any two operations of the group must also be a member of the group}. From above, it should be clear that $\symop[4]C \symop[v]{\sigma} (XZ) = \symop[d]{\sigma} (b)$ while $\symop[v]{\sigma} (XZ)\symop[4]C = \symop[d]{\sigma} (a)$ .
+    \item \textbf{Multiplication is associate for all members of the group}. The triple product $\symop[2]C (a) \symop[v]{\sigma} (XZ) \symop[4]C$ can be written either as $\left\{\symop[2]C (a) \symop[v]{\sigma} (XZ)\right\}\symop[4]C = \symop[4]S^3\symop[4]C = \symop[h]{\sigma}$ or as $\symop[2]C (a) \left\{\symop[v]{\sigma} (XZ) \symop[4]C\right\} = \symop[2]C (a) \symop[d]{\sigma} (a) = \symop[h]{\sigma}$.
+    \item The \textbf{inverse of every operation is a member of the group}. The inverse of an operation which returns the system to its original form, i.e. $\symop{RR^{-1}} = \symop{E}$. A reflection through a plane and a two-fold rotation are each their own inverse.
+\end{enumerate}
+
+The 16 symmetry operations discussed for the \ptcl\ ion satisfy all of these requirements and constitute a group.
+Groups of symmetry operations are called \keyword{point group}\textbf s.
+As mentioned previously, the point group to which \ptcl\ belongs is called \PG{D}{4h}.
+The number of members of the group is called the \textbf{order} of the group and given the symbol $h$. For the \PG{D}{4h} point group, $h=16$.
+
+A \keyword{multiplication table} presents the results of the multiplication, i.e. the successive application of two operations.
+By convention, the \emph{first} operation performed is given at the \emph{top of the column} and the \emph{second} operation involved is at the \emph{beginning of the row}.
+The multiplication table for the \symop{E}, \symop[4]C, \symop[2]C and $\symop[4]C^3$ operations of the \PG{D}{4h} point group is given below.
+
+\begingroup
+\renewcommand{\arraystretch}{1.35}
+\renewcommand{\tabcolsep}{1em}
+\begin{table}[!htbp]
+    \centering
+    \baselineskip=1.5em
+    \begin{tabular}{ r | c c c c }
+    \toprule
+    First \rightarrow&
+    \multirow{2}{*}{\symop{E}}&
+    \multirow{2}{*}{\symop[4]C}&
+    \multirow{2}{*}{\symop[2]C}&
+    \multirow{2}{*}{$\symop[4]C^3$}\\
+    Second \downarrow&&&&\\
+    \midrule
+    \symop{E}& \symop{E}& \symop[4]C& \symop[2]C& $\symop[4]C^3$\\
+    \symop[4]C& \symop[4]C& \symop[2]C& $\symop[4]C^3$& \symop{E}\\
+    \symop[2]C& \symop[2]C& $\symop[4]C^3$& \symop{E}& \symop[4]C\\
+    $\symop[4]C^3$& $\symop[4]C^3$& \symop{E}& \symop[4]C& \symop[2]C\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+\endgroup
+
+These operations satisfy all of the requirements of a group of order $4$ ($h=4$).
+Indeed, they comprise the \symop[4]C point group.
+Since all of the members of the \symop[4]C point group are also found in the D4h point group ($h=16$), \symop[4]C is said to be a \keyword{subgroup} of \PG{D}{4h}.
+Note that the order of a subgroup must be an integral divisor of the order of the group.
+
+\begin{problem}
+   Water belongs to the \PG{C}{2v} point group, $\left\{C_{2v}\,\middle|\, E, C_2, σ (XZ), σ (YZ)\right\}$. Define the molecular plane as the $\mathbf{XZ}$ plane and generate the multiplication table for the \PG{C}{2v} point group. 
+\end{problem}
+
+In the following section, extensive use of the multiplication table will be made, but since the point group is so large, its multiplication table is cumbersome ($16\times 16$).
+We will, therefore, consider the ammonia molecule which has lower symmetry.
+\ce{NH3} belongs to the \PG{C}{3v} point group of order $6$, $\left\{C_{3v}\,\middle|\,E, C_3, C_3^2, σ_v, σ_v',σ_v'' \right\}$.
+The effect of each of the symmetry operations of the \PG{C}{3v} point group on the ammonia molecule is shown in \fref{fig:ammonia}.
+
+\begin{figure}[!htbp]
+    \centering
+    \begingroup\renewcommand\tabcolsep{2em}
+    \begin{tabular}{c c}
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})}
+        \arrow{->[\symop{E}]}
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})}
+        \arrow{->[\symop[3]C]}
+        \chemfig{N(-[2]\clr{H}{3})(-[::-30]\clr{H}{2})(-[::210]\clr{H}{1})}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})}
+        \arrow{->[$\symop[3]C^2$]}
+        \chemfig{N(-[2]\clr{H}{2})(-[::-30]\clr{H}{1})(-[::210]\clr{H}{3})}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})(-[::-90,,,,dotted])}
+        \arrow{->[$\symop[v]{\sigma}$]}
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{2})(-[::210]\clr{H}{3})}
+        \schemestop\\
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})(-[::150,,,,dotted])}
+        \arrow{->[$\symop[v]{\sigma}'$]}
+        \chemfig{N(-[2]\clr{H}{3})(-[::-30]\clr{H}{1})(-[::210]\clr{H}{2})}
+        \schemestop&
+        \schemestart[][north]
+        \chemfig{N(-[2]\clr{H}{1})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{2})(-[::30,,,,dotted])}
+        \arrow{->[$\symop[v]{\sigma}''$]}
+        \chemfig{N(-[2]\clr{H}{2})(-[::-30]\clr{H}{3})(-[::210]\clr{H}{1})}
+        \schemestop
+    \end{tabular}
+    \endgroup
+    \caption{The effect of each of the symmetry operations of the $C_{3v}$ point group on the ammonia molecule as viewed down the \symop[3]C axis.}
+    \label{fig:ammonia}
+\end{figure}
+
+The student should verify that the multiplication table for the $C_{3v}$ point group is therefore:
+\begin{table}[!hbtp]
+    \centering
+    \begingroup
+    \renewcommand{\arraystretch}{1.35}
+    \renewcommand{\tabcolsep}{0.5em}
+    \begin{tabular}{r | c c c c c c}
+        \toprule
+        First\rightarrow&
+        \multirow{2}{*}{\symop{E}}&
+        \multirow{2}{*}{$\symop[3]C$}&
+        \multirow{2}{*}{$\symop[3]C^2$}&
+        \multirow{2}{*}{$\symop[v]{\sigma}$}&
+        \multirow{2}{*}{$\symop[v]{\sigma}'$}&
+        \multirow{2}{*}{$\symop[v]{\sigma}''$}\\
+        Second\downarrow&&&&&&\\
+        \midrule
+        \symop{E}& \symop{E}& $\symop[3]C$& $\symop[3]C^2$& $\symop[v]{\sigma}$& $\symop[v]{\sigma}'$& $\symop[v]{\sigma}''$\\
+        $\symop[3]C$& $\symop[3]C$& $\symop[3]C^2$& \symop{E}& $\symop[v]{\sigma}''$& $\symop[v]{\sigma}$& $\symop[v]{\sigma}'$\\
+        $\symop[3]C^2$& $\symop[3]C^2$& \symop{E}& $\symop[3]C$& $\symop[v]{\sigma}'$& $\symop[v]{\sigma}''$& $\symop[v]{\sigma}$\\
+        $\symop[v]{\sigma}$& $\symop[v]{\sigma}$& $\symop[v]{\sigma}'$& $\symop[v]{\sigma}''$& \symop{E}& $\symop[3]C$& $\symop[3]C^2$\\
+        $\symop[v]{\sigma}'$& $\symop[v]{\sigma}'$& $\symop[v]{\sigma}''$& $\symop[v]{\sigma}$& $\symop[3]C^2$& \symop{E}& $\symop[3]C$\\
+        $\symop[v]{\sigma}''$& $\symop[v]{\sigma}''$& $\symop[v]{\sigma}$& $\symop[v]{\sigma}'$& $\symop[3]C$& $\symop[3]C^2$& \symop{E}\\
+        \bottomrule
+    \end{tabular}
+    \endgroup
+\end{table}
+\pagebreak
+%% End of section 2
