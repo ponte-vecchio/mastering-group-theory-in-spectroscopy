@@ -27,6 +27,11 @@ $ cd mastering-group-theory-in-spectroscopy
 ```sh
 $ latexmk -lualatex main.tex
 ```
+### Preview
+
+![diagram](https://github.com/ponte-vecchio/mastering-group-theory-in-spectroscopy/assets/64239070/ab321fed-52bd-47e8-977c-a9ce7b030419)
+![problem](https://github.com/ponte-vecchio/mastering-group-theory-in-spectroscopy/assets/64239070/b98f5f4f-c075-4daa-abb2-07ab062c51a4)
+![shifts](https://github.com/ponte-vecchio/mastering-group-theory-in-spectroscopy/assets/64239070/ae5a1d33-ecee-4573-86e2-ec6b3ab39529)
 
 ## Licence
 
