@@ -23,15 +23,26 @@
 \protected\def\ptcl{\ce{PtCl4^{2-}}}
 \protected\def\recl{\ce{[Re2Cl8]^{2-}}}
 
-\newcommand{\charop}[1]{\ensuremath{\mathop{\chi}\left(#1\/\right)}}
-
+\newcommand{\charop}[1]{\ensuremath{\chi\left(#1\/\right)}}
+\newcommand{\irrep}{irreducible representation}
 \makeatletter
 % P-orbital notation
 \newcommand{\porb}{\@ifstar{\porb@}{\porb@@}}
 \protected\def\porb@{\ensuremath{p}-orbital}
 \protected\def\porb@@#1{\ensuremath{p_{#1}} orbital}
 
-\newcommand{\sorb}{\ensuremath{s}-orbital}
+\newcommand{\sorb}{%
+  \ifmmode s\text{-orbital}%
+  \else%
+    \ensuremath{s\text{-orbital}}%
+  \fi%
+}
+\newcommand{\dorb}{%
+  \ifmmode d\text{-orbital}%
+  \else%
+    \ensuremath{d\text{-orbital}}%
+  \fi%
+}
 
 % Symmetry operations
 \newcommand{\symop}[2][]{\ensuremath{#2_{#1}}}

@@ -1,0 +1,237 @@
+\section{Point group representations}
+
+A point group representation is a basis set in which the irreducible representations are the basis vectors.
+As $\mathbf i$, $\mathbf j$, and $\mathbf k$ form a complete, orthonormal basis for three-3-dimensional space, so too do the irreducible representations form the a complete orthonormal basis for an $m$-dimensional space, where $m$ is the number of irreducible representations and is equal to the number of classes in the group.
+These considerations are summarised by the following rules:
+
+\begin{enumerate}
+    \item The number of basis vectors, or irreducible representations $m$ equals the number of classes;
+    \item The sum of the squares of the dimensions of the $m$ irreducible representations equals the order \[\sum_{i=1}^{m} d_i^2 = h\]
+    The character of the identity operation equals the dimension of the representation \charop{E} = $d_i$, which is referred to as the \keyword{degeneracy} of the \irrep. The degeneracy of most \irrep s is $1$ i.e. non-degenerate representations are $1\times1$ matrices. but sometimes can also be $2$ or $3$.
+    \ce{C60}---also known as buckminster fullerene or “Buckyball”---belongs in the icosahedral point group.
+    It has \irrep{}s with degeneracies of $4$ and $5$.
+    No character in an \irrep\ can exceed the dimension of the representation.
+    Thus, in non-degenerate representations, all characters must be $\pm1$.
+    \item The member \irrep{}s are orthonormal i.e. the sum of the squares of the characters in any \irrep\ is equal to the order (row normalisation), while the sum of the product of the characters over all operations in two different \irrep{}s is $0$ (orthogonality) \[\sum_R \mathop{g}(R)\mathop{\chi_i}(R)\mathop{\chi_j}(R) = \mathop{h} \delta_{ij}\] where the sum is over all of the \emph{classes} of operations, $\mathop{g}(R)4$ is the number of operation, $R$ is the class, $\mathop{\chi_i}(R)$ and $\mathop{\chi_j}(R)$ are the characters of operation $R$ in the $i$-th and $j$-th \irrep{}s, and $h$ is the order of the group and $\delta_{ij}$ is the Kronecker delta ($0$ when $i\neq j$ and $1$ when $i=j$).
+    \item The sum of the squares of the characters of any operation over all of the \irrep{}s times the number of operations in the class is equal to $h$, as in columns of the representation are also normalised such that: \[\sum^{m}_{i=1} \mathop{g}(R)\mathop{\chi^2_i}(R) = h\] where $m$ is the number of \irrep{}s.
+    \item The sum of the products of the characters of any two unequal operations over all of the \irrep{}s is $0$---columns of the representation are also orthogonal such that: \[\sum_{i=1}^{m} \mathop{\chi_i}(R')\mathop{\chi_i}(R) = 0\]
+    \item The \emph{first} representation is always the totally symmetric representation in which all characters are $+1$.
+    \item Any reducible representation in the point group can be expressed as a linear combination of the \irrep{}s---the completeness of the set.
+\end{enumerate}
+
+\subsection*{Generating the \texorpdfstring{\PG{C}{2v}}{C2v} point group}
+
+Let us now generate the \PG{C}{2v} point group: $\left\{C_{2v} \middle| E, C_2, \sigma, \sigma'\right\}$.
+The order of the group $(h)$ and the number of classes $(m)$ are both $4$.
+Each class has only one operation i. e. $\mathop{g}(R) = 1$ in all cases.
+Using rule 2, we can write \(d_1^2 + d_2^2 + d_3^2 + d_4^2 = 4\) so that $d_1 = d_2 = d_3 = d_4 = 1$---there are no degenerate representations in \PG{C}{2v}.
+The character of the identity operation is always the dimension of the representation, so $\mathop{\chi_i}(E) = d_i$.
+That is, all of the characters of the identity operation are $1$.
+Inferring from rule 6, we may write the character of $\Gamma_1$ as $+1$.
+In sum, we have the following character table for \PG{C}{2v}:
+\begin{equation*}
+    \begin{NiceArray}{c *{4}{r}}[hvlines]
+        \PG{C}{2v} & E & C_2 & \sigma & \sigma' \\
+        \Gamma_1 & 1 & 1 & 1 & 1 \\
+        \Gamma_2 & 1 & a & b & c \\
+        \Gamma_3 & 1 & d & e & f \\
+        \Gamma_4 & 1 & g & h & i
+    \end{NiceArray}
+\end{equation*}
+\noindent Since there are no degenerate representations, characters $\mathbf a$ through $\mathbf i$ are all $\pm1$.
+To retain the orthogonality of rows and columns, only \emph{one} of the remaining characters in each row and in each column may be $+1$ while the other two in each column and row must each be $-1$.
+That is, there are only three remaining $+1$'s and no two can be in the same column or row.
+If we make $\mathbf a$, $\mathbf e$ and $\mathbf i$ as $+1$, then the rest must be $-1$.
+
+With this, the \keyword{character table} for \PG{C}{2v} is then determined to be:
+\begin{equation*}
+    \begin{NiceArray}{c *{4}{r}}[hvlines]
+        \PG{C}{2v} & E & C_2 & \sigma & \sigma' \\
+        \Gamma_1 & 1 & 1 & 1 & 1 \\
+        \Gamma_2 & 1 & 1 & -1 & -1 \\
+        \Gamma_3 & 1 & -1 & 1 & -1 \\
+        \Gamma_4 & 1 & -1 & -1 & 1
+    \end{NiceArray}
+\end{equation*}
+
+\subsubsection*{Mulliken symbols}
+
+In the \PG{C}{2v} point group, the \irrep{}s are designated as $\Gamma_1 = \mathup A_1$, $\Gamma_2 = \mathup B_1$, $\Gamma_3 = \mathup B_2$ and $\Gamma_4 = \mathup B_2$.
+What we have done is to assign the \irrep{}s to the \keyword{Mulliken symbols} for the \irrep{}s.
+Mulliken symbols for \irrep{}s are as follows:
+\begin{itemize}
+    \item[$\mathup A$] the \irrep\ is symmetric with respect to the rotation about the principle axis \(\charop{\mathop{C_n} (z)} = +1\)
+    \item[$B$] the \irrep\ is antisymmetric with respect to the rotation about the principle axis \(\charop{\mathop{C_n} (z)} = -1\)
+    \item[$\mathup E$] is a doubly degenerate representation \(d = 2 \implies \charop{E} = 2\)
+    \item[$\mathup T$] is a triply degenerate representation \(d = 3 \implies \charop{E} = 3\)
+    \item[$\mathup G$] implies degeneracy of 4
+    \item[$\mathup H$] implies degeneracy of 5 
+\end{itemize}
+In many instances there are more than one A, B, E etc. \irrep{}s present in the point group.
+This necessitates the use of subscripts and superscripts for further clarification:
+\begin{itemize}
+    \item[g/u] used in point groups with centres of symmetry $(i)$ to denote \textbf{g}erade\index[keywords]{gerade}\footnotemark[1] and \textbf{u}ngerade\index[keywords]{ungerade}\footnotemark[2] with respect to inversion.
+    \item[${}'$\//\/${}''$] used to designate symmetric and antisymmetric with respect to inversion through a \symop[h]{\sigma} plane.
+    \item Otherwise numerical subscripts are used.
+\end{itemize}
+
+\footnotetext[1]{German for ‘even’, implies symmetric}
+\footnotetext[2]{German for ‘odd’, implies antisymmetric}
+
+In the treatment of of molecular systems, one generates a reducible representation using an appropriate basis---such as
+atomic orbitals or displacement vectors in Euclidean space---and then decomposes this reducible representation into its
+component \irrep{}s to arrive at a description of the system which contains the information available from the
+molecular symmetry.
+There are certain symmetry properties which are very important and immutable so long as the point group remains the
+same.
+Since the symmetries of these various aspects are used frequently, they are also included in the character table.
+We will now demonstrate the determination of these symmetries for the water molecule.
+
+Since the \sorb\ on the \ce{O} atom lies on all of the symmetry elements and is spherically symmetric, it is unchanged
+by a rotation about the \symop[2]C axis or reflection through the planes.
+Thus the representation of the \sorb\ is:
+\begin{equation*}
+	\begin{NiceArray}{lcccc}[hvlines]
+		\PG{C}{2v} & E & C_2 & \sigma & \sigma' \\
+		\sorb & +1 & +1 & +1 & +1
+	\end{NiceArray}
+\end{equation*}
+\noindent which is the $\mathup A_1$ \irrep.
+The takeaway here is the \textbf{\sorb{}s on central elements will always transform as the totally symmetric representation but are not included in character tables.}
+
+The three \porb{}s, translation along the $x$, $y$ and $z$ axes, and the three component of the \keyword*{electric dipole
+operator} $\mu_x$, $\mu_y$ and $\mu_z$ all transform in the same way.
+The \porb{x}s and \porb{y}s will change sign with a \symop[2]C operation an with reflection through the perpendicular
+plane $YZ$ and $XZ$ respectively.
+The \porb{z} is not affected by any of the symmetry operations.
+Thus, $\Gamma_{\mathup p} = \mathup A_1 + \mathup B_1 + \mathup B_2$. The \porb{x} is said to\begin{itemize}
+	\item form the basis for the $\mathup B_1$ representation,
+	\item have $\mathup B_1$ symmetry or
+	\item transform as $\mathup B_1$.
+\end{itemize}
+\noindent Translations along the $x$, $y$ and $z$-directions transform in the same way as $p_x$, $p_y$ and $p_z$.
+To visualise this, simply translate the water molecule slightly along the $x$-axis without moving any of the symmetry
+elements.
+In this new position, \symop[2]C and $\sigma(yz)$ are destroyed and the characters are those of $p_x$ above.
+
+Rotation of the water molecule slightly about the $z$-axis moves the \ce{H} atoms out of the plane.
+In such orientation, the \symop[2]C axis is still preserved but both planes of symmetry are destroyed such that $\mathup R_z$ transforms to $\mathup A_2$.
+Rotation about the $x$-axis preserves the $yz$ plane but destroys the \symop[2]C rotation and the $xz$ reflection while rotation about the $y$-axis preserves the $xz$ plane but destroys the \symop[2]C rotation and the $yz$ reflection.
+\begin{equation*}
+    \begin{NiceArray}{ccccc}[hvlines]
+        \PG{C}{2v} & E & \symop[2]C (z) & \symop[v]{\sigma} (xz) & \symop[v]{\sigma} (yz) \\
+        \mathup R_z & +1 & +1 & -1 & -1 \\
+        \mathup R_x & +1 & -1 & -1 & +1 \\
+        \mathup R_y & +1 & -1 & +1 & -1
+    \end{NiceArray}
+\end{equation*}
+\noindent Thus, the rotations in the \PG{C}{2v} point group transform as $\mathup A_2 + \mathup B_1 + \mathup B_2$.
+In most character tables, \PG{C}{2v} has the following form:
+\begin{equation*}
+    \begin{NiceArray}{ccccc || c || c}[hvlines]
+        \PG{C}{2v} & E & \symop[2]C (z) & \symop[v]{\sigma} (xz) & \symop[v]{\sigma} (yz)\\
+        \mathup A_1 & +1 & +1 & +1 & +1 & z & x^2, y^2, z^2\\
+        \mathup A_2 & +1 & +1 & -1 & -1 & \mathup R_z & xy\\
+        \mathup B_1 & +1 & -1 & +1 & -1 & x, \mathup R_y & xz\\
+        \mathup B_2 & +1 & -1 & -1 & +1 & y, \mathup R_x & yz\\
+    \end{NiceArray}
+\end{equation*}
+\noindent The final column yields the squares and binary products of the coordinates and represent the transformation properties of the \dorb{}s.
+
+\subsection*{Generating the \texorpdfstring{\PG{C}{3v}}{C3v} point group}
+
+As another example, we shall now generate the \PG{C}{3v} point group.
+The operations of \PG{C}{3v} are \symop E, \symop[3]C, \symop[3]{C^2}, \symop[v]{\sigma}, \symop[v]{\sigma'} and \symop[v]{\sigma''}.
+These can be simplified as \symop E, $2 \symop[3]C$ and $3 \symop[v]{\sigma}$ because \symop[3]C and the like are conjugate, as well as the three \symop[v]{\sigma}’s.
+The \PG{C}{3v} group has an order of $6$ and contains three classes: $(h=6, m=3) \implies d_1^2 + d_2^2 + d_3^2 = 6 \implies d_1 = d_2 = 1$ and $d_3 = 2$.
+Since the dimensions of the \irrep{}s are the \charop{E} and every group contains the totally symmetry \irrep:
+\begin{equation*}
+    \begin{NiceArray}{cccc}[hvlines]
+        \PG{C}{3v} & \symop E & 2 \symop[3]C & 3 \symop[v]{\sigma} \\
+        \Gamma_1 & 1 & 1 & 1 \\
+        \Gamma_2 & 1 & j & k \\
+        \Gamma_3 & 2 & m & n
+    \end{NiceArray}
+\end{equation*}
+\noindent Orthogonality with $\Gamma_1$ requires that $\sum \mathop{g}(R) \charop{R} = 0$ for $\Gamma_2$ where $\left[1 \cdot 1 \cdot 1 + 2 \cdot l \cdot j + 3 \cdot l \cdot k = 0\right]$ and for $\Gamma_3$ where $\left[1\cdot 1 \cdot 2 + 2 \cdot l \cdot m + 3 \cdot l \cdot n = 0\right]$.
+$\Gamma_2$ is non-degenerate i.e. $j$ and $k$ must each be $\pm 1$ hence the orthogonality condition implies that $j = +1$ and $k = -1$.
+Normalisation of $\Gamma_3$ means $(1)(2^2) + 2(m^2) + 3(n^2) = 6$, which renders $m = -1$ and $n = 0$.
+Alternatively, we can use the fact that $\mathop{g}(R) \sum \charop{R}^2 = h$ along any column, e.g. $2(1^2 + 1^2 + m^2) = 6\;\therefore m^2 = 1$ and $3\left(1^2 + (-1)^2 + n^2\right) = 6\;\therefore n^2 = 0$ and so on.
+\begin{equation*}
+    \begin{NiceArray}{c *{3}{r}}[hvlines]
+        \PG{C}{3v} & \symop E & 2 \symop[3]C & 3 \symop[v]{\sigma} \\
+        \Gamma_1 & 1 & 1 & 1 \\
+        \Gamma_2 & 1 & 1 & -1 \\
+        \Gamma_3 & 2 & -1 & 0
+    \end{NiceArray}
+\end{equation*}
+We shall use the ammonia (\ce{NH3}) molecule as an example.
+Coordinate system we will use in the following discussion is shown below.
+\begin{figure}[!htbp]
+    \centering
+    \schemestart[][north]
+        \chemfig[cram width = .3em, cram dash width = 0.75pt, cram dash sep = 2pt]{%
+            N%
+            (<:[::-170,1.25]\clr{H}{1})(<[::-145,1.25]\clr{H}{2})(-[::-30,1.25]\clr{H}{3})%
+            (-[::0,1.75,,,dotted]X)(-[::20,1.75,,,dotted]Y)(-[::90,1.75,,,dotted]Z)%
+        }
+        \arrow{0}
+        \chemfig{%
+            N%
+            (-[::180,1.25]\clr{H}{1})(-[::-60,1.25]\clr{H}{2})(-[::60,1.25]\clr{H}{3})%
+            (-[::0,1.75,,,dotted]X)(-[::90,1.75,,,dotted]Y)(-[::-90,1.75,,,dotted])%
+        }
+    \schemestop
+\end{figure}
+The \porb{z} is unchanged by any of the operations of the group i.e. transforms as $\mathup A_1$ and is totally symmetric.
+In contrast, $p_x$ and \porb{y}s are neither symmetric nor antisymmetric with respect to the \symop[3]C or \symop[v]{\sigma} operations.
+Rather, they go into linear combinations of one another and must therefore be considered together as components of a two-dimensional representation.
+
+The matrices in this \irrep{} will therefore be $2 \times 2$ instead of $1 \times 1$.
+Consequently, the character of the identity operation will be $2$ i.e. $\charop{E} = 2$.
+A rotation through an angle $\frac{2\pi}{n}$ can be represented by the following transformation: \[\begin{bNiceMatrix}
+    x' \\ y'
+\end{bNiceMatrix} = \begin{bNiceMatrix}[cell-space-limits = 1pt]
+    \cos \left(\frac{2\pi}{n}\right) & \sin \left(\frac{2\pi}{n}\right) \\
+    -\sin \left(\frac{2\pi}{n}\right) & \cos \left(\frac{2\pi}{n}\right)
+\end{bNiceMatrix} \begin{bNiceMatrix}
+    x \\ y
+\end{bNiceMatrix}.\]
+
+\noindent The trace for the \symop[n]C rotation matrix is therefore $2 \cos \left(\frac{2\pi}{n}\right)$, which for $n=3$ is $-1$ i.e. \charop{\symop[3]C} = $-1$.
+The character for reflection through a plane can be determined by the effect of of reflection through any one of the three planes, since they are all in the same \keyword*{class}.
+The easiest operation to use is the reflection through the $XZ$ plane---at which one of the \ce{N-H} bonds lies---which results in $p_x \to p_x$, $p_y \to -p_y$ and $p_z \to p_z$, yielding a trace of $0$ i.e. \charop{\symop[v]{\sigma}} = $0$.
+The transformation properties of the $p_x$ and \porb{y}s are thus represented as:
+\begin{equation*}
+    \begin{NiceArray}
+        {r c r c}[hvlines]
+        & \symop E & 2 \symop[3]C & 3 \symop[v]{\sigma} \\
+        (x, y) & 2 & -1 & 0
+    \end{NiceArray}
+\end{equation*}
+\noindent which is the \symop E \irrep{}.
+The $p_x$ and \porb{y}s are degenerate in \PG{C}{3v} symmetry and are taken \emph{together} to form a basis for the two-dimensional \irrep: $\mathup E$.
+Treating rotations and binary products as before, we can thus represent the \PG{C}{3v} point group as follows:
+\begin{equation*}
+    \begin{NiceArray}{c *{3}{r} || c || c}[hvlines]
+        \PG{C}{3v} & \symop E & 2 \symop[3]C & 3 \symop[v]{\sigma}\\
+        \mathup A_1 & 1 & 1 & 1 & z & x^2 + y^2;\,z^2 \\
+        \mathup A_2 & 1 & 1 & -1 & \mathup R_z\\
+        \mathup E & 2 & -1 & 0 & (x, y);\;(\mathup R_x, \mathup R_y) & (x^2 - y^2, xy);\,(xz, yz)
+    \end{NiceArray}
+\end{equation*}
+\noindent We can therefore deduce that the $xy$ and $x^2 - y^2$ orbitals are also degenerate, as are $xz$ and $yz$ orbitals.
+
+\begin{problem}
+    What are the dimensions of the \irrep{}s of a group with the following classes?
+    \tcblower
+    $\mathup E,\, \mathup R_1,\, 2 \mathup R_2,\, 2 \mathup R_3,\, 2 \mathup R_4,\, 2 \mathup R_5,\, 5 \mathup R_6,\, 5 \mathup R_7$
+\end{problem}
+
+\begin{problem}
+    Generate the character table for \PG{D}{4} point group, given $\left\{\PG{D}{4} \middle| \symop E, 2\symop[4]C, \symop[2]C, 2\symop[2]{C'}, 2\symop[2]{C''}\right\}$
+\end{problem}
+
+\begin{problem}
+    By convention, the $z$-axis is the principle symmetry axis. However, for planar molecules, it is also common to define the $z$-axis as the axis \emph{perpendicular} to the plane. Determine the \irrep{}s to which the metal \dorb{}s belong for \textit{cis}-\ce{PtCl2Br2} (\PG{C}{2v}) using the latter convention, where $z$-axis is perpendicular to the molecular plane, $x$-axis bisects the \ce{Cl-Pt-Cl} bond and $y$-axis bisects the \ce{Cl-Pt-Br} bonds.
+\end{problem}

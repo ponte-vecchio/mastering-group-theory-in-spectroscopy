@@ -4,7 +4,7 @@
 %		Class Pre-processing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\baseclass{book}
-\catcode`@=11
+\makeatletter
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
 \def\@checkoptions#1#2{
 	\edef\@curroptions{\@ptionlist{\@currname.\@currext}}
@@ -48,7 +48,6 @@
 ]{geometry}
 \raggedbottom
 \setlength{\topskip}{1\topskip \@plus 5\p@}
-\catcode`@=12
 \doublehyphendemerits=10000
 \brokenpenalty=10000
 \widowpenalty=9999
@@ -114,7 +113,9 @@
     title={Index of Keywords},
     columns=1
 ]
-\def\keyword#1{\textbf{#1}\index[keywords]{\MakeLowercase{#1}}}
+\newcommand{\keyword}{\@ifstar{\@kw}\@kwbold}
+\def\@kwbold#1{\textbf{#1}\index[keywords]{\MakeLowercase{#1}}}
+\def\@kw#1{#1\index[keywords]{\MakeLowercase{#1}}}
 \usepackage{xcolor}
 \usepackage[
     colorlinks=true,
@@ -157,3 +158,4 @@
     right=2.5mm
     #1
 }
+\makeatother
