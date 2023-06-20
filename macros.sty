@@ -8,7 +8,8 @@
 % integrate colors with colored atom
 %\node[draw,circle,minimum size=1.5em,inner sep=0pt] at (2,0) {$T_1$};
 \tikzset{%
-  atom/.style={draw, circle, minimum size=1.25em, inner sep=0pt}
+	atom/.style={draw, circle, minimum size=1.25em, inner sep=0pt},
+	vibr/.style={-Latex, thick}
 }
 \tikzstyle{dotted} = [dash pattern=on 0.5pt off 1pt]
 \newlength{\capC}
@@ -25,6 +26,7 @@
 
 \newcommand{\charop}[1]{\ensuremath{\chi\left(#1\/\right)}}
 \newcommand{\irrep}{irreducible representation}
+\newcommand{\dof}{{\itshape dof\/}}
 \makeatletter
 % P-orbital notation
 \newcommand{\porb}{\@ifstar{\porb@}{\porb@@}}

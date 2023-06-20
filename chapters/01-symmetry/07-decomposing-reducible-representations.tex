@@ -1,0 +1,124 @@
+\section{Decomposing reducible representations}
+
+In the determination of molecular orbital or vibrational symmetries, a reducible presentation is generated from an appropriate basis set and then decomposed into its constituent \irrep{}s.
+Such process is analogous to determining the projection of a vector on the $x$, $y$ or $z$-axis in Euclidean space where the dot product of the vector with $\mathbf i$, $\mathbf j$ or $\mathbf k$ yields the result.
+
+Decomposing a reducible representation can be viewed as determining the \emph{projection} of the reducible representation along one of the \irrep{}s and the process is similar to taking the dot product of the two.
+The actual method is provided below without proof.
+\[
+    a_i = \frac{1}{h} \sum_{\mathup R} g(R) \mathop{\chi_i}(R) \mathop{\chi}(R)
+\]
+\begin{itemize}
+    \item[$a_i$] number of times that the i-th \irrep{} appears in the reducible representation
+    \item[$h$] the order of the group
+    \item[$\mathup R$] an operation of the group
+    \item[$g(R)$] the number of operations in that class
+    \item[$\mathop{\chi_i}(R)$] the character of the $\mathup R$-th operation in the i-th \irrep{}
+    \item[$\mathop{\chi}(R)$] the character of the $\mathup R$-th operation in the reducible representation
+\end{itemize}
+
+As an example, we will decompose the reducible representation $\Gamma_{\text{red}} = 7\;1\;1$ of the \PG{C}{3v} point group where we will determine the number of times (i.e. $a_i$) that each \irrep\ is contained in $\Gamma_{\text{red}}$. Note that the order of the point group is $6$.
+
+\begin{center}
+$\begin{NiceArray}{cccc}[hvlines]
+    \PG{C}{3v} & 1 \symop E & 2 \symop[3]C & 3 \symop[v]{\sigma} \\
+    \mathup A_1 & 1 & 1 & 1\\
+    \mathup A_2 & 1 & 1 & -1\\
+    \mathup E & 2 & -1 & 0\\
+    \Gamma_{\text{red}} & 7 & 1 & 1\\
+\end{NiceArray}$
+\end{center}
+
+\begin{align*}
+    a(\mathup A_1) &= \frac{1}{6} \Big((1)(1)(7) + (2)(1)(1) + (3)(1)(1)\Big) = 2\\
+    a(\mathup A_2) &= \frac{1}{6} \Big((1)(1)(1) + (2)(1)(1) + (3)(-1)(1)\Big) = 1\\
+    a(\mathup E) &= \frac{1}{6} \Big((1)(2)(7) + (2)(-1)(1) + (3)(0)(1)\Big) = 2
+\end{align*}
+
+\noindent The reducible representation can be decomposed into $\Gamma_{\text{red}} = 2\mathup A_1 + \mathup A_2 + 2\mathup E$.
+The results can be verified y adding the characters of the \irrep{}s.
+
+\begin{problem}
+	Decompose the following reducible representations of the \PG{C}{4v} point group.
+	\tcblower
+	\begin{equation*}
+		\begin{NiceArray}{c *{5}{r}}[hvlines]
+		\PG{C}{4v} & \symop E & 2 \symop[4]C & \symop[2]C & 2 \symop[v]{\sigma} & 2 \symop[d]{\sigma} \\
+		\Gamma_1 & 11 & 1 & -1 & 5 & 1\\
+		\Gamma_2 & 6 & 0 & 2 & 0 & 0\\
+		\Gamma_3 & 3 & 1 & -3 & -1 & -1\\
+		\Gamma_4 & 4 & -4 & 4 & 0 & 0
+		\end{NiceArray}
+	\end{equation*}
+\end{problem}
+
+The reducible representation of the Cartesian displacement vectors for water was determined earlier, and is given in
+the following table as $\Gamma_{\text{cart}}$:
+\begin{equation*}
+	\begin{NiceArray}{ccrrr || c}[hvlines]
+			\PG{C}{2v} & \symop E & \symop[2]C & \symop[v]{\sigma} & \symop[v]{\sigma'}\\
+			\mathup A_1 & 1 & 1 & 1 & 1 & z\\
+			\mathup A_2 & 1 & 1 & -1 & -1 & \mathup R_z\\
+			\mathup B_1 & 1 & -1 & 1 & -1 & x, \mathup R_y\\
+			\mathup B_2 & 1 & -1 & -1 & 1 & y, \mathup R_x\\
+		\Gamma_{\text{cart}} & 9 & -1 & 3 & 1
+	\end{NiceArray}
+\end{equation*}
+\noindent Decomposition of $\Gamma_{\text{cart}}$ yields:
+\begin{align*}
+	a\left(\mathup A_1\right) &= \frac14 \bigg((1)(1)(9) + (1)(1)(-1) + (1)(1)(3) + (1)(1)(1)\bigg) &= 3\\
+	a\left(\mathup A_2\right) &= \frac14 \bigg((1)(1)(9) + (1)(1)(-1) + (1)(-1)(3) + (1)(-1)(1)\bigg) &= 1\\
+	a\left(\mathup B_1\right) &= \frac14 \bigg((1)(1)(9) + (1)(-1)(-1) + (1)(1)(3) + (1)(-1)(1)\bigg) &= 3\\
+	a\left(\mathup B_2\right) &= \frac14 \bigg((1)(1)(9) + (1)(-1)(-1) + (1)(-1)(3) + (1)(1)(1)\bigg) &= 2\\
+	\therefore \Gamma_{\text{cart}} &= 3\mathup A_1 + \mathup A_2 + 3\mathup B_1 + 2\mathup B_2
+\end{align*}
+Linear combinations of the $3N$ displacement vectors represent the degree of motional freedom (\dof) of the molecule.
+Of these $3N$ \dof, three are translational, three are rotational and the remaining $3N - 6$ are the vibrational \dof.
+That is, to get the symmetries of the vibrations, the \irrep{}s of translation an rotation---which are available from the character table---need only be subtracted from $\Gamma_{\text{cart}}$.
+As for the \ce{H20} molecule,
+\begin{align*}
+	\Gamma_{\text{vib}} &= \Gamma_{\text{cart}} - \Gamma_{\text{trans}} - \Gamma_{\text{rot}}\\
+					   &= \bigg(3\mathup A_1 + \mathup A_2 + 3\mathup B_1 + 2\mathup B_2\bigg) - \bigg(\mathup A_1 + \mathup B_1 + \mathup B_2\bigg) + \bigg(\mathup A_2 + \mathup B_1 + \mathup B_2\bigg)\\
+					   &= 2 \mathup A_1 + \mathup B_1.
+\end{align*}
+Construction of these “symmetry coordinates” will be discussed in detail in later chapters%TODO: Vibrational spectroscopy
+but below illustrates the differences between \symop[1]S (symmetric stretch) and \symop[2]S (bending mode) both preserve the symmetry of the molecule i.e. are wholly symmetric while \symop[3]S (antisymmetric stretch) destroys the plane orthogonal to the molecule as well as the \symop[2]C axis but retains the plane of the molecule i.e. $\mathup B_1$ symmetry.
+\begin{figure}[!hbtp]
+	\centering
+	\schemestart[][north]
+	\chemname{%
+		\chemfig{%
+			\clf{}{white}(-[::90,1.1,,,vibr])%
+			(-[::-45,1.5]\clf{}{white}(-[::0,1.1,,,vibr]))%
+			(-[::-135,1.5]\clf{}{white}(-[::0,1.1,,,vibr]))%
+		}%
+	}{\symop[1]S}
+	\arrow{0}
+	\chemname{%
+		\chemfig{%
+			\clf{}{white}(-[::90,1.1,,,vibr])%
+			(-[::-45,1.5]\clf{}{white}(-[::-90,1.1,,,vibr]))%
+			(-[::-135,1.5]\clf{}{white}(-[::90,1.1,,,vibr]))%
+		}%
+	}{\symop[2]S}
+	\arrow{0}
+	\chemname{%
+		\chemfig{%
+			\clf{}{white}(-[::0,1.1,,,vibr])%
+			(-[::-45,1.5]\clf{}{white}(-[::180,1.1,,,vibr]))%
+			(-[::-135,1.5]\clf{}{white}(-[::0,1.1,,,vibr]))%
+		}%
+	}{\symop[3]S}
+	\schemestop
+\end{figure}
+\begin{problem}
+	Determine the symmetries of the vibrations of the following molecules:
+	\tcblower
+	\begin{itemize}
+		\item \ce{CH4}
+		\item \ce{NH3}
+		\item \ptcl
+		\item \ce{SbF5}
+			\end{itemize}
+\end{problem}
+
