@@ -1,0 +1,71 @@
+\section{Direct products}
+
+In order to determine the symmetry of the product of two \irrep{}s, it is often necessary to determine their \keyword{direct product}\textbf{s}.
+What is a direct product?
+It is the product of the \emph{characters} of the two representations.
+For example, let us verify that under \PG{C}{2v} symmetry $\mathup A_2 \otimes \mathup B_1 = \mathup B_2$.
+\begin{equation*}
+    \begin{NiceArray}{ c *{4}{r} }[hvlines]
+        \PG{C}{2v} & \symop E & \symop[2]C & \symop[v]{\sigma} & \symop[v]{\sigma'}\\
+        \mathup A_2 & 1 & 1 & -1 & -1\\
+        \mathup B_1 & 1 & -1 & 1 & -1\\
+        \mathup A_2 \otimes \mathup B_1 & 1 & -1 & -1 & 1\\
+    \end{NiceArray}
+\end{equation*}
+Just with a glimpse we can elucidate that the characters of $\mathup A_2 \otimes \mathup B_1$ are the same as those of $\mathup B_2$ \irrep.
+We can, in fact, further verify that $\mathup A_2 \otimes \mathup B_2 = \mathup B_1$, and $\mathup B_1 \otimes \mathup B_2 = \mathup A_2$ and so on.
+If we apply the concepts of group theory, then we can suppose a pattern:
+\begin{enumerate}
+    \item the product of any non-degenerate representation with itself is totally symmetric; and
+    \item the product of any representation with the totally symmetric representation affords the original representation itself.
+\end{enumerate}
+That is to say:
+\begin{align*}
+    A \otimes B &= B &A \otimes A &= B \otimes B = A\\
+    1 \otimes 2 &= 2 &1 \otimes 1 &= 2 \otimes 2 = 1\\
+    g \otimes u &= u &g \otimes g &= u \otimes u = g
+\end{align*}
+The basis of selection rules is that the transition between two states, $A$ and $B$ is \emph{electric dipole allowed} if the electric dipole moment matrix element is non-zero, that is, \[\Braket{ A | \mu | B} = \int_{\infty} \mathop{\psi_{A}^*} \mu \mathop{\psi_{B}} \mathrm{d}\tau \neq 0 \] where $\mu = \mu_x + \mu_y + \mu_z$ is the \keyword{electric dipole moment operator} which transforms in the same manner as \porb{}s.
+A necessary condition for this inequality is that the direct product of the integrand---$\psi_A \otimes \mu \otimes \psi_B = \psi_A \otimes \left(\mu_x + \mu_y + \mu_z\right) \otimes \psi_B$---must contain the totally symmetric representation.
+
+Is the orbital transition $d_{yz} \to p_x$ electric dipole allowed in \PG{C}{2v} symmetry?
+The \PG{C}{2v} character table indicates that the \dorb{yz} forms the basis for the $\mathup B_2$ \irrep\ while the \porb{x} transforms as a $\mathup B_1$.
+Then, the question becomes whether or not a transition between a $\mathup B_2$ and a $\mathup B_1$ orbital is electric dipole allowed.
+Such a transition is allowed only if the product $\mathup B_1 \otimes \mu \otimes \mathup B_2$ contains the totally symmetric representation $\mathup A_1$.
+In \PG{C}{2v}, the electric dipole transforms as $\mathup b_1 + \mathup b_2 + \mathup a_1$.
+The direct products are determined to be
+\[
+    \mathup B_1 \otimes \begin{pNiceMatrix}
+        \mathup b_1 \\ \mathup b_2 \\ \mathup a_1
+    \end{pNiceMatrix} \otimes \mathup B_2 = \begin{pNiceMatrix}
+        \mathup a_1 \\ \mathup a_2 \\ \mathup b_1
+    \end{pNiceMatrix} \otimes \mathup B_2 = \begin{pNiceMatrix}
+        \mathup b_2 \\ \mathup b_1 \\ \mathup a_2
+    \end{pNiceMatrix}.
+\]
+That is, this transition is \emph{forbidden} on the basis that none of the three components contains the $\mathup a_1$ representation.
+
+Since the \irrep{}s are orthogonal, the direct product of two different \irrep{}s will always contain $-1$’s and thus cannot be totally symmetric.
+The only way to exclusively get $+1$’s, then, is to square the individual characters i.e. the \textbf{direct product of two non-degenerate \irrep{}s can be $\mathup a_1$ only if they are the of the same \irrep.}
+A triple product will transform as $\mathup A_1$ only if the direct product of two \irrep{}s is the same \irrep\ as the third.
+Thus we state the following:
+
+% box
+\begin{tcolorbox}
+A transition between two non-degenerate states will be allowed only if the direct product of the two state symmetries is the same \irrep\ as one of the components of the electric dipole.
+\end{tcolorbox}
+
+The transition $d_{yz} \to p_x$ wil be allowed only if the direct product $\mathup B_1 \otimes \mathup B_2$ transforms the same as $x$, $y$ or $z$.
+Since $\mathup B_1 \otimes \mathup B_2 = \mathup a_2$ and $x$, $y$ nor $z$ transform as $\mathup a_2$, the transition is forbidden.
+An $\mathup A_1 \to \mathup B_2$ transition is allowed, however, since $\mathup A_1 \otimes \mathup B_2 = \mathup B_2$ $y$ transforms as $b_2$.
+In this case, the transition is said to be “$y$-allowed”.
+
+\begin{problem}
+    Indicate whether each of the following metal localised transitions is electric dipole allowed in \ptcl.
+    \begin{enumerate}
+        \item $d_{xy} \to p_z$
+        \item $d_{yz} \to d_{z^2}$
+        \item $d_{x^2 - y^2} \to p_x,\thinspace p_y$
+        \item $p_z \to s$
+    \end{enumerate}
+\end{problem}
