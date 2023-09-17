@@ -3,48 +3,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %		Class Pre-processing
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\baseclass{book}
+\def\baseclass{memoir}
 \makeatletter
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
-\def\@checkoptions#1#2{
-	\edef\@curroptions{\@ptionlist{\@currname.\@currext}}
-	\@tempswafalse
-	\@tfor\@this:=#2\do{
-		\@expandtwoargs\in@{,\@this,}{,\@curroptions,}
-		\ifin@ \@tempswatrue \@break@tfor \fi}
-	\let\@this\@empty
-	\if@tempswa \else \PassOptionsToClass{#1}{\baseclass}\fi
-}
-\@checkoptions{10pt}{{10pt}{10.5pt}{11pt}{12pt}}
-\PassOptionsToClass{a4paper}{\baseclass}
 \ProcessOptions\relax
 \LoadClass{\baseclass}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %		Page & Margin Formatting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{setspace}
-\onehalfspacing
+\OnehalfSpacing
 \setlength{\parindent}{2ex}
 \setlength{\parskip}{2.0ex plus0.5ex minus0.2ex}
 \usepackage[%
 	% showframe,% debug
 	paperwidth=210mm,
 	paperheight=297mm,
-% Here I follow ISO page design for spreads.
-% Exact values and proportions can be found in memdesign.pdf
-%
-% w				=	e		+	m		+	s
-% paperwidth	=	outer	+	width	+	inner
-%
-	inner=23mm,% s = w/9
-	outer=46mm,% e = 2s
-% h				=	t		+	d		+	f
-% paperheight	=	top 	+	height	+	bottom
-	top=23mm,%	 t = s
-	bottom=46mm,% f = 2s
-	marginparwidth=35mm,
-	marginparsep=5mm
-% φ
+    % Here I follow ISO page design for spreads.
+    % Exact values and proportions can be found in memdesign.pdf
+    %
+    % w				=	e		+	m		+	s
+    % paperwidth	=	outer	+	width	+	inner
+    %
+    inner=23mm,% s = w/9
+    outer=46mm,% e = 2s
+    % h				=	t		+	d		+	f
+    % paperheight	=	top 	+	height	+	bottom
+    top=23mm,%	 t = s
+    bottom=46mm,% f = 2s
+    marginparwidth=35mm,
+    marginparsep=5mm
+    % φ
 ]{geometry}
 \raggedbottom
 \setlength{\topskip}{1\topskip \@plus 5\p@}
@@ -57,7 +44,7 @@
 %		Section Title Formatting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter}{15pt}{\bf\huge}
+\titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter}{15pt}{\bfseries\huge}
 \titlespacing{\chapter}{0pt}{0pt}{.5\baselineskip}
 \titleclass{\chapter}{straight}
 \titleformat{\section}{\bfseries\Large}{\thesection}{15pt}{\bfseries\Large}
@@ -68,16 +55,27 @@
 \usepackage{iftex}
 \ifluatex
     \usepackage[no-math]{fontspec}
-    % \setmainfont{texgyrepagella}
-    \usepackage{libertinus}
-    \renewcommand*{\familydefault}{\sfdefault}
+    \setmainfont{texgyrepagella}[
+        UprightFont = *-regular,
+        BoldFont = *-bold,
+        ItalicFont = *-italic,
+        BoldItalicFont = *-bolditalic
+    ]
+    \setsansfont{texgyreheros}[
+        UprightFont = *-regular,
+        BoldFont = *-bold,
+        ItalicFont = *-italic,
+        BoldItalicFont = *-bolditalic
+    ]
     \everymath{\displaystyle}
-    % \usepackage[
-    %     math-style=ISO,
-    %     bold-style=ISO,
-    %     sans-style=upright
-    % ]{unicode-math}
+    \usepackage[
+        math-style=ISO,
+        bold-style=ISO,
+        sans-style=upright
+    ]{unicode-math}
+    \setmathfont{texgyrepagella-math.otf}
     % \setmathfont{libertinusmath-regular.otf}
+    % \setmathfont[Script=Math]{texgyreschola-math.otf}
     \usepackage{polyglossia}
     \setmainlanguage[variant=Australian]{english}
     \usepackage{microtype}
@@ -97,6 +95,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tikz}
 \usepackage{nicematrix}
+\usepackage{diffcoeff}
+\usepackage{braket}
 \usepackage{chemfig}
 \setchemfig{%
 	atom sep = 1.75em,
@@ -126,8 +126,8 @@
 ]{hyperref}
 \usepackage[centerlast,labelfont={rm, bf}, textfont={rm}]{caption}
 \setlength{\captionmargin}{1em}
-\newcommand{\fref}[1]{Figure~\ref{#1}}
-\newcommand{\tref}[1]{Table~\ref{#1}}
+% \newcommand{\fref}[1]{Figure~\ref{#1}}
+% \newcommand{\tref}[1]{Table~\ref{#1}}
 \newcommand{\eref}[1]{Equation~\ref{#1}}
 \newcommand{\cref}[1]{\S\,\ref{#1}}
 \newcommand{\parref}[1]{\P\,\ref{#1}}
